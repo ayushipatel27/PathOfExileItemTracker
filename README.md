@@ -35,7 +35,7 @@ Give an example
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gitlab.cis.uab.edu/medzo/PathOfExileItemTracker/blob/871952f0790b9604c77bea52bfab848fc3cf9d35/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 
 ## Authors
