@@ -1,0 +1,4 @@
+# Set the default behavior, in case people don't have core.autocrlf set:
+# Here, we set to enforce lf because we runs our server side codes in Linux (Ubuntu)
+* text eol=lf
+
