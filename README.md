@@ -1,6 +1,12 @@
 # Path of Exile Item Tracker
 
-One Paragraph of project description goes here
+Path of Exile is an online Action RPG. The game is designed around players slaying monsters and collecting items. People find items playing the game and often trade them in a strong online item economy.
+
+This app makes trading easier, allowing users to concentrate on playing the game while the app watches the trade market for them.
+* Items in public stashes are sellable for various amounts
+* We're creating a watch list for currency items and tracking their exchange rates and possibly more down the line.
+* Users will be able to create profiles to track specific items and have the option to be notified when an item is being traded at a low price.
+
 
 
 ## Authors
@@ -15,29 +21,9 @@ One Paragraph of project description goes here
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 * In the terminal navigate to the project directory run command 'vagrant up'
-* Vagrant will create a private key for you at 'PROJECT_DIRECTORY/.vagrant/machines/default/virtualbox/private_key'. You will need this key to log into the Virtual Box. If you are using Windows Putty then you will probably have PuttyGen installed. In PuttyGen hit the load button and find the private_key file. Once it is loaded save the private key file as a .ppk file in order to authenticate.
+* On Windows Vagrant will create a private key for you at 'PROJECT_DIRECTORY/.vagrant/machines/default/virtualbox/private_key'. You will need this key to log into the Virtual Box. If you are using Windows Putty then you will probably have PuttyGen installed. In PuttyGen hit the load button and find the private_key file. Once it is loaded save the private key file as a .ppk file in order to authenticate.
 * SSH into the virtual machine with your private key and username: ubuntu
-* You will need to set up the configuration for apache2. Navigate to the correct directory 'cd /etc/apache2/sites-available' and then create a new config file 'sudo touch pathofexileitemtracker.conf'. Edit the file with your favorite linux editor, for nano 'sudo nano pathofexileitemtracker.conf', put the following code below inside it:
-```
-<virtualhost *:80>
-    ServerName pathofexileitemtracker
- 
-    WSGIDaemonProcess pathofexileitemtracker user=www-data group=www-data threads=5 home=/var/www/html/htdocs/
-    WSGIScriptAlias / /var/www/html/htdocs/pathofexileitemtracker.wsgi
- 
-    <directory /var/www/html/htdocs>
-        WSGIProcessGroup pathofexileitemtracker
-        WSGIApplicationGroup %{GLOBAL}
-        WSGIScriptReloading On
-        AllowOverride All
-        Require all granted
-    </directory>
-</virtualhost>
-```
 * Edit the host file 'sudo nano /etc/host' and add the line '127.0.0.1 pathofexileitemtracker'
-* Tell Apache which configuration file to use commands 'sudo a2dissite 000-default.conf' to disable the default and then 'sudo a2ensite pathofexileitemtracker.conf' to enable the new configuration.
-* To ensure the wsgi is enabled run the command 'sudo a2enmod wsgi' it should've already been enabled during vagrant setup.
-* Restart Apache with command 'sudo service apache2 restart'
 * If everything was properly set up you should now be able to see the project in your browser at http://localhost:8080 
 
 
