@@ -1,6 +1,5 @@
-htdocs/dbconfig.txt
 .vagrant/
 mysql_post_install_security_setup.sh
 ubuntu-xenial-16.04-cloudimg-console.log
-htdocs/dbconfig.txt
-
+dbconfig.txt
+__pycache__

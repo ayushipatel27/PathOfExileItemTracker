@@ -4,10 +4,6 @@
 
 # Use single quotes instead of double quotes to make it work with special-character passwords
 PASSWORD='pwd12345'
-PROJECTFOLDER='htdocs'
-
-# create project folder
-sudo mkdir  "/var/www/html/${PROJECTFOLDER}"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -58,37 +54,26 @@ sudo apt-get -qqy install python3-sqlalchemy
 sudo pip3 install flask-sqlalchemy
 
 # setup hosts file
-# VHOST=$(cat <<EOF
-# <VirtualHost *:80>
-#     DocumentRoot "/var/www/html/${PROJECTFOLDER}"
-#     <Directory "/var/www/html/${PROJECTFOLDER}">
-#         AllowOverride All
-#         Require all granted
-#     </Directory>
-# </VirtualHost>
-# EOF
-# )
-# echo "${VHOST}" > /etc/apache2/sites-available/000-default.conf
-
-# setup hosts file
 VHOST=$(cat <<EOF
-<virtualhost *:80>
-    ServerName pathofexileitemtracker
+<VirtualHost *:80>
+    ServerName PathOfExileStashWatch
  
-    WSGIDaemonProcess pathofexileitemtracker user=www-data group=www-data threads=5 home=/var/www/html/htdocs/
-    WSGIScriptAlias / /var/www/html/htdocs/pathofexileitemtracker.wsgi
+    WSGIDaemonProcess app user=www-data group=www-data threads=5 home=/var/www/html/
+    WSGIScriptAlias / /var/www/html/app.wsgi
  
-    <directory /var/www/html/htdocs>
-        WSGIProcessGroup pathofexileitemtracker
+    <Directory /var/www/html/>
+        WSGIProcessGroup app
         WSGIApplicationGroup %{GLOBAL}
         WSGIScriptReloading On
         AllowOverride All
         Require all granted
-    </directory>
-</virtualhost>
+    </Directory>
+</VirtualHost>
 EOF
 )
-echo "${VHOST}" > /etc/apache2/sites-available/pathofexileitemtracker.conf
+echo "${VHOST}" > /etc/apache2/sites-available/app.conf
+sudo a2dissite 000-default.conf
+sudo a2ensite app.conf
 
 # enable mod_rewrite
 sudo a2enmod rewrite
