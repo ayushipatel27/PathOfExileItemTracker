@@ -18,6 +18,7 @@ CREATE TABLE market (
   id int NOT NULL AUTO_INCREMENT,
   first_item_id int DEFAULT NULL,
   second_item_id int DEFAULT NULL,
+  rate DECIMAL(6,2) DEFAULT NULL,
   seller_account_id varchar(100) DEFAULT NULL,
   seller_character_name varchar(100) DEFAULT NULL,
   league varchar(100) DEFAULT NULL,
@@ -25,18 +26,6 @@ CREATE TABLE market (
   PRIMARY KEY (id)
 );
 
-
-
-CREATE TABLE enrollments (
-  studentId int,
-  courseId int,
-  CUDDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  CUDAction int,
-  KEY studentId (studentId),
-  KEY courseId (courseId),
-  CONSTRAINT enrollment_ibfk_1 FOREIGN KEY (studentId) REFERENCES students (studentId),
-  CONSTRAINT enrollment_ibfk_2 FOREIGN KEY (courseId) REFERENCES courses (courseId)
-);
 
 
 insert into item (item_name) value 'Apprentice Cartographer's Seal';
