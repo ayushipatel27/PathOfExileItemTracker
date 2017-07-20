@@ -16,8 +16,7 @@ CREATE TABLE item (
 
 CREATE TABLE market (
   id int NOT NULL AUTO_INCREMENT,
-  first_item_id int DEFAULT NULL,
-  second_item_id int DEFAULT NULL,
+  exhange_id int DEFAULT NULL,
   rate DECIMAL(6,2) DEFAULT NULL,
   seller_account_id varchar(100) DEFAULT NULL,
   seller_character_name varchar(100) DEFAULT NULL,
@@ -26,6 +25,11 @@ CREATE TABLE market (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE exchange (
+id int NOT NULL AUTO_INCREMENT,
+first_item_id int DEFAULT NULL,
+second_item_id int DEFAULT NULL,
+);
 
 
 insert into item (item_name) value 'Apprentice Cartographer's Seal';
