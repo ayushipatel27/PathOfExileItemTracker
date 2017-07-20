@@ -29,6 +29,7 @@ CREATE TABLE exchange (
 id int NOT NULL AUTO_INCREMENT,
 first_item_id int DEFAULT NULL,
 second_item_id int DEFAULT NULL,
+PRIMARY KEY (id)
 );
 
 
