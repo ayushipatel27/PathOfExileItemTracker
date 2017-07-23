@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title>Market</title>
+</head>
+
+<body>
+<header>
+  <div class="container">
+	<h1>Market DB:</h1>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Item</th>
+			<th>Icon</th>
+			<th>Price</th>
+			<th>Seller ACCT</th>
+			<th>Seller Character</th>
+			<th>League</th>
+            <th>Amount</th>
+            <th>Created</th>
+		</tr>
+
+        {% for item in market|reverse %}
+        <tr>
+            {% for column in item %}
+                <td>{{ column }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+	</table>
+  </div>
+</main>
+
+</body>
+</html>
