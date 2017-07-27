@@ -30,6 +30,7 @@ def parseStash(api_id):
                     if('note' in item):
                         id = item['id']
                         icon = item['icon']
+                        # typeLine is the item name
                         type_line = item['typeLine']
                         league = item['league']
                         note = item['note']

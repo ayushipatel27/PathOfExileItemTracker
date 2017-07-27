@@ -12,6 +12,7 @@ CREATE TABLE market (
   seller_character_name varchar(128) DEFAULT NULL,
   league varchar(128) DEFAULT NULL,
   stack_size varchar(128) DEFAULT NULL,
+  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
 
