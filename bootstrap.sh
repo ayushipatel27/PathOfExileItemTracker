@@ -36,6 +36,7 @@ sudo apt-get -y install libapache2-mod-wsgi-py3
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
 sudo apt-get -y install mysql-server
+sudo apt-get install mysql-server libmyqlclient-dev
 
 # set up basice security practices:
 # sudo mysql_secure_installation <<EOF
@@ -52,6 +53,13 @@ sudo apt-get -y install mysql-server
 sudo pip3 install pymysql
 sudo apt-get -qqy install python3-sqlalchemy
 sudo pip3 install flask-sqlalchemy
+sudo pip install flask-mysqldb
+
+#install for form validation
+sudo pip install Flask-WTF
+
+#install to hash passwords
+sudo pip install passlib
 
 # setup hosts file
 VHOST=$(cat <<EOF
