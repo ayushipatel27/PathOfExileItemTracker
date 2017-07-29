@@ -1,5 +1,17 @@
 <!doctype html>
+
 <html>
+
+<style>
+body {
+    background-color: #191919;
+}
+
+body {
+    color: #ffffff;
+}
+</style>
+
 <head>
 <title>Market</title>
 </head>
@@ -15,20 +27,22 @@
   <div class="container">
 	<table>
 		<tr>
-			<th>Item</th>
-			<th>Price</th>
-			<th>Seller ACCT</th>
-			<th>Seller Character</th>
-			<th>League</th>
-            <th>Amount</th>
-            <th>Posted</th>
+{#			<th>item_id</th>#}
+			<th>seller_item</th>
+            <th>icon</th>
+			<th>note</th>
+			<th>seller_account_id</th>
+			<th>seller_character_name</th>
+            <th>league</th>
+            <th>quantity</th>
+            <th>posted</th>
 		</tr>
 
-        {% for item in market|reverse %}
+        {% for item in market %}
         <tr>
             {% for column in item %}
-                {% if loop.index == 1 or loop.index == 3 %}
-                    {# ID column is 1 and Icon is 3 #}
+                {% if loop.index == 2 %}
+                     <td><img src="{{ column }}"></td>
                 {% else %}
                     <td>{{ column }}</td>
                 {% endif %}

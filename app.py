@@ -1,12 +1,11 @@
 #!/usr/bin/python  
 
-from flask import Flask, render_template, request, Response
-import json
-from flask_mysqldb import MySQL
+from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from dbfunctions import *
+import json
 import sys
 import pymysql
 
@@ -26,7 +25,6 @@ class RegisterForm(Form):
 		validators.EqualTo('confirm', message='Passwords do not match')
 	])
 	confirm = PasswordField('Confirm Password')
-	return render_template('index.html')
 
 @app.route('/market', methods=['GET'])
 def market():

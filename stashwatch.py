@@ -3,6 +3,21 @@ import sys
 import pymysql
 import time
 
+# Neat. http://www.network-science.de/ascii/
+def graffiti():
+    print("  _________________________    _________ ___ ___")
+    print(" /   _____/\__    ___/  _  \  /   _____//   |   \ ")
+    print(" \_____  \   |    | /  /_\  \ \_____  \/    ~    \ ")
+    print(" /        \  |    |/    |    \/        \    Y    /")
+    print("/_______  /  |____|\____|__  /_______  /\___|_  / ")
+    print("        \/                 \/        \/       \/  ")
+    print(" __      __  _________________________   ___ ___  ")
+    print("/  \    /  \/  _  \__    ___/\_   ___ \ /   |   \ ")
+    print("\   \/\/   /  /_\  \|    |   /    \  \//    ~    \ ")
+    print(" \        /    |    \    |   \     \___\    Y    /")
+    print("  \__/\  /\____|__  /____|    \______  /\___|_  / ")
+    print("       \/         \/                 \/       \/  ")
+
 # Main API endpoint.
 poe_api = 'http://api.pathofexile.com/api/public-stash-tabs?id='
 
@@ -21,29 +36,31 @@ def parseStash(api_id):
         # For each stash in the list of all stashes from the api.
         for stash in stashes:
             # The stash owner.
-            seller_account_id = stash['accountName']
-            seller_character_name = stash['lastCharacterName']
             for item in stash['items']:
                 # frameType 5 is a currency item.
                 if (item['frameType'] is 5):
                     # note is where someone will list a price if its for sale.
                     if('note' in item):
-                        id = item['id']
+                        seller_account_id = stash['accountName']
+                        seller_character_name = stash['lastCharacterName']
+                        item_id = item['id']
                         icon = item['icon']
                         # typeLine is the item name
                         type_line = item['typeLine']
                         league = item['league']
                         note = item['note']
-                        stack_size = item['stackSize']
+                        quantity = item['stackSize']
+                        frame_type = item['frameType']
                         tracked_item = {
-                            'id': id,
+                            'item_id': item_id,
                             'seller_account_id': seller_account_id,
                             'seller_character_name': seller_character_name,
                             'icon': icon,
                             'type_line': type_line,
                             'league': league,
                             'note': note,
-                            'stack_size': stack_size
+                            'quantity': quantity,
+                            'frame_type': frame_type,
                         }
                         # Tries to insert item into the database.
                         try:
@@ -66,7 +83,8 @@ def parseStash(api_id):
 
 # Inserts item into database.
 def insertItem(**tracked_item):
-    id = tracked_item['id'].strip()
+    item_id = tracked_item['item_id'].strip()
+    frame_type = tracked_item['frame_type']
     # Attempt at getting rid of apostrophes from type_line (type_line is the item name).
     type_line = tracked_item['type_line'].strip().translate(str.maketrans({"'":None}))
     # icon appears to be going into the database as "None" it is suppose to be a link to a cdn of items.
@@ -75,12 +93,12 @@ def insertItem(**tracked_item):
     seller_account_id = tracked_item['seller_account_id'].strip()
     seller_character_name = tracked_item['seller_character_name'].strip()
     league = tracked_item['league'].strip()
-    stack_size = tracked_item['stack_size']
+    quantity = tracked_item['quantity']
     conn = makeConnection()
     c = conn.cursor()
 
     # Insert item data.
-    query = "CALL create_item ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (id, type_line, icon, note, seller_account_id, seller_character_name, league, stack_size)
+    query = "CALL post_item ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, note, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
     c.execute(query)
     conn.commit()
     conn.close()
@@ -112,21 +130,6 @@ def getMarket():
 
     conn.close()
     return results
-
-# Neat. http://www.network-science.de/ascii/
-def graffiti():
-    print("  _________________________    _________ ___ ___")
-    print(" /   _____/\__    ___/  _  \  /   _____//   |   \ ")
-    print(" \_____  \   |    | /  /_\  \ \_____  \/    ~    \ ")
-    print(" /        \  |    |/    |    \/        \    Y    /")
-    print("/_______  /  |____|\____|__  /_______  /\___|_  / ")
-    print("        \/                 \/        \/       \/  ")
-    print(" __      __  _________________________   ___ ___  ")
-    print("/  \    /  \/  _  \__    ___/\_   ___ \ /   |   \ ")
-    print("\   \/\/   /  /_\  \|    |   /    \  \//    ~    \ ")
-    print(" \        /    |    \    |   \     \___\    Y    /")
-    print("  \__/\  /\____|__  /____|    \______  /\___|_  / ")
-    print("       \/         \/                 \/       \/  ")
 
 # Shows ASCII title when ran.
 graffiti()
