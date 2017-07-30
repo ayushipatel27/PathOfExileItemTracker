@@ -52,3 +52,16 @@ def getUser(**loginInfo):
 
 	conn.close()
 	return username, password
+
+def getMarket():
+	conn = makeConnection()
+	c = conn.cursor()
+
+	# Print the contents of the db table.
+	c.execute("CALL get_market();")
+
+	# Fetch all the rows in a list of lists.
+	results = c.fetchall()
+
+	conn.close()
+	return results

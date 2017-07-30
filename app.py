@@ -16,6 +16,13 @@ app = Flask(__name__)
 def index():
 	return render_template('home.html')
 
+
+@app.route('/market', methods=['GET'])
+def market():
+	market = getMarket()
+	return render_template('market.html', market=market)
+
+
 class RegisterForm(Form):
 	name = StringField('Name', [validators.Length(min=1, max=50)])
 	username = StringField('Username', [validators.Length(min=4, max=25)])
@@ -25,40 +32,6 @@ class RegisterForm(Form):
 		validators.EqualTo('confirm', message='Passwords do not match')
 	])
 	confirm = PasswordField('Confirm Password')
-
-@app.route('/market', methods=['GET'])
-def market():
-	market = getMarket()
-	return render_template('market.html', market=market)
-
-
-def makeConnection():
-	file = open(sys.path[0]+"/dbconfig.txt", "r")
-	dbStr = file.readline().strip()
-	userStr = file.readline().strip()
-	passwdStr = file.readline().strip()
-	hostStr = file.readline().strip()
-	conn = pymysql.connect(
-        db=dbStr,
-        user=userStr,
-        passwd=passwdStr,
-        host=hostStr)
-	return conn
-
-
-def getMarket():
-	conn = makeConnection()
-	c = conn.cursor()
-
-	# Print the contents of the db table.
-	c.execute("CALL get_market();")
-
-	# Fetch all the rows in a list of lists.
-	results = c.fetchall()
-
-	conn.close()
-	return results
-
 
 
 # User Register
@@ -98,8 +71,13 @@ def login():
 		}
 
 		# Get user by username
-		user = getUser(**loginInfo)
-		username, password = getUser(**loginInfo)
+		try:
+			user = getUser(**loginInfo)
+		except TypeError as error:
+			error = 'Username not found'
+			return render_template('login.html', error=error)
+		else:
+			username, password = getUser(**loginInfo)
 
 		# Compare Passwords
 		if sha256_crypt.verify(password_candidate, password):
