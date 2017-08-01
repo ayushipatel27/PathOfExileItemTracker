@@ -65,3 +65,16 @@ def getMarket():
 
 	conn.close()
 	return results
+
+def getItems():
+	conn = makeConnection()
+	c = conn.cursor()
+
+	# Print the contents of the db table.
+	c.execute("CALL get_items();")
+
+	# Fetch all the rows in a list of lists.
+	results = c.fetchall()
+
+	conn.close()
+	return results

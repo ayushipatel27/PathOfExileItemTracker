@@ -59,7 +59,14 @@ order by market.posted desc;
 end //
 delimiter ;
 
+delimiter //
+create procedure get_items()
+begin
+select item.type_line
+from item;
 
+end //
+delimiter ;
 
 delimiter //
 create procedure post_item(IN insert_item_id varchar(128), IN insert_icon varchar(2048), IN insert_note varchar(512), IN insert_seller_account_id varchar(128), IN insert_seller_character_name varchar(128), IN insert_league varchar(128), IN insert_quantity varchar(128), IN insert_type_line varchar(128), IN insert_frame_type varchar(128))

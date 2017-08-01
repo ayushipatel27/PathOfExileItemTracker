@@ -74,8 +74,8 @@ def login():
 		try:
 			user = getUser(**loginInfo)
 		except TypeError as error:
-			error = 'Username not found'
-			return render_template('login.html', error=error)
+			error = 'User does not exsit'
+			return render_template('register.html', error=error)
 		else:
 			username, password = getUser(**loginInfo)
 
@@ -116,7 +116,8 @@ def logout():
 @app.route('/dashboard')
 @is_logged_in
 def dashboard():
-	return render_template('dashboard.html')
+	items = getItems()
+	return render_template('dashboard.html', items=items)
 
 
 # used for debugging in development only!  NOT for production!!!

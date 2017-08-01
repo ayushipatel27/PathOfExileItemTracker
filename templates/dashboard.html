@@ -1,5 +1,40 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Dashboard <small> Welcome!</small></h1>
+  <h1>Welcome!</h1>
+
+  <div class="container">
+  <table style="float: left">
+  	<tr>
+  		<td><h3>Items you have:</h3></td>	
+  	</tr>
+  	{% for item in items %}
+  	 <tr>
+		<td>
+		<div class="checkbox">
+			<label><input type="checkbox" value="">{{item}}</label>
+		</div>	
+		</td>	
+  	</tr>
+  	{% endfor %}
+   </table>
+
+   <table style="float: right">
+   	<tr>
+   		<td><h3>Items you want:</h3></td>
+  	</tr>
+  	{% for item in items %}
+  	 <tr>
+		<td>
+		<div class="checkbox">
+			<label><input type="checkbox" value="">{{item}}</label>
+		</div>	
+		</td>	
+  	</tr>
+  	{% endfor %}
+   </table>
+   </div>
+
+   <a href="#" class="btn btn-primary btn-lg" role="button">Find</a>
+
 {% endblock %}
