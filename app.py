@@ -6,10 +6,11 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from dbfunctions import *
 import json
-import sys
+import sys, os
 import pymysql
 
 app = Flask(__name__)
+app.secret_key= os.urandom(24)
  
 @app.route("/")
 @app.route("/index")
@@ -122,6 +123,5 @@ def dashboard():
 
 # used for debugging in development only!  NOT for production!!!
 if __name__ == "__main__":
-	app.secret_key='secret123'
 	app.debug = True
 	app.run(host='0.0.0.0', port=5000)
