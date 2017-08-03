@@ -73,6 +73,7 @@ VHOST=$(cat <<EOF
         WSGIProcessGroup app
         WSGIApplicationGroup %{GLOBAL}
         WSGIScriptReloading On
+        WSGIPassAuthorization On
         AllowOverride All
         Require all granted
     </Directory>

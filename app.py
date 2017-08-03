@@ -87,7 +87,7 @@ def login():
 			session['username'] = username
 
 			flash('You are now logged in', 'success')
-			return redirect(url_for('dashboard'))
+			return redirect(url_for('home'))
 		else:
 			error = 'Invalid login'
 			return render_template('login.html', error=error)
@@ -114,12 +114,28 @@ def logout():
 	flash('You are now logged out', 'success')
 	return redirect(url_for('login'))
 
-@app.route('/dashboard')
-@is_logged_in
-def dashboard():
-	items = getItems()
-	return render_template('dashboard.html', items=items)
 
+@app.route('/select', methods=['GET', 'POST'])
+def selectItems():
+	if request.method == 'POST':
+		has_items = request.form.getlist('has')
+		want_items = request.form.getlist('want')
+		print(has_items)
+		print(want_items)
+		market = []
+		for i in has_items:
+			items = getTrade(i)
+			market.extend(items)
+		return render_template('market.html', market=market)
+		# for has_index in has_items:
+		# 	has_items[has_index]
+	return render_template('select.html')
+
+@app.route('/test', methods=['GET'])
+def testFunction():
+	market = getMarket()
+	print(market)
+	return render_template('select.html')
 
 # used for debugging in development only!  NOT for production!!!
 if __name__ == "__main__":

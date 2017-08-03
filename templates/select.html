@@ -1,8 +1,12 @@
 {% extends 'layout.html' %}
 
+{#{% block stylesheets %}#}
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/icon.css') }}">#}
+{#{% endblock %}#}
+
 {% block body %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/icon.css') }}">
 <!-- <head>
-<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/icon.css') }}">
 </head> -->
 	<div class="jumbotron text-center">
 	    <h1>Trade!</h1>
@@ -265,253 +269,253 @@
         </div>
         <div class="col-xs-6">
             <h2>What items do you want?</h2><br>
-            <input type="checkbox" name="want" value="Albino Rhoa Feather" id="Albino Rhoa Feather"/>
-	            <label for="Albino Rhoa Feather"> 
+            <input type="checkbox" name="want" value="Albino Rhoa Feather" id="Albino Rhoa Feather Want"/>
+	            <label for="Albino Rhoa Feather Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Albino Rhoa Feather.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Apprentice Cartographers Seal" id="Apprentice Cartographers Seal"/>
-	            <label for="Apprentice Cartographers Seal"> 
+            <input type="checkbox" name="want" value="Apprentice Cartographers Seal" id="Apprentice Cartographers Seal Want"/>
+	            <label for="Apprentice Cartographers Seal Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Apprentice Cartographers Seal.png') }}>
 	            </label>	           
 
-            <input type="checkbox" name="want" value="Apprentice Cartographers Sextant" id="Apprentice Cartographers Sextant"/>
-	            <label for="Apprentice Cartographers Sextant"> 
+            <input type="checkbox" name="want" value="Apprentice Cartographers Sextant" id="Apprentice Cartographers Sextant Want"/>
+	            <label for="Apprentice Cartographers Sextant Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Apprentice Cartographers Sextant.png') }}>
 	            </label>	
 
-            <input type="checkbox" name="want" value="Armourers Scrap" id="Armourers Scrap"/>
-	            <label for="Armourers Scrap"> 
+            <input type="checkbox" name="want" value="Armourers Scrap" id="Armourers Scrap Want"/>
+	            <label for="Armourers Scrap Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Armourers Scrap.png') }}>
 	            </label>	         
 
-            <input type="checkbox" name="want" value="Blacksmiths Whetstone" id="Blacksmiths Whetstone"/>
-	            <label for="Blacksmiths Whetstone"> 
+            <input type="checkbox" name="want" value="Blacksmiths Whetstone" id="Blacksmiths Whetstone Want"/>
+	            <label for="Blacksmiths Whetstone Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blacksmiths Whetstone.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Blessed Orb" id="Blessed Orb"/>
-	            <label for="Blessed Orb"> 
+            <input type="checkbox" name="want" value="Blessed Orb" id="Blessed Orb Want"/>
+	            <label for="Blessed Orb Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blessed Orb.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Blessing of Chayula" id="Blessing of Chayula"/>
-	            <label for="Blessing of Chayula"> 
+            <input type="checkbox" name="want" value="Blessing of Chayula" id="Blessing of Chayula Want"/>
+	            <label for="Blessing of Chayula Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blessing of Chayula.png') }}>
 	            </label>	            
 
-            <input type="checkbox" name="want" value="Blessing of Esh" id="Blessing of Esh"/>
-	            <label for="Blessing of Esh"> 
+            <input type="checkbox" name="want" value="Blessing of Esh" id="Blessing of Esh Want"/>
+	            <label for="Blessing of Esh Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blessing of Esh.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Blessing of Tul" id="Blessing of Tul"/>
-	            <label for="Blessing of Tul"> 
+            <input type="checkbox" name="want" value="Blessing of Tul" id="Blessing of Tul Want"/>
+	            <label for="Blessing of Tul Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blessing of Tul.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Blessing of Uul-Netol" id="Blessing of Uul-Netol"/>
-	            <label for="Blessing of Uul-Netol"> 
+            <input type="checkbox" name="want" value="Blessing of Uul-Netol" id="Blessing of Uul-Netol Want"/>
+	            <label for="Blessing of Uul-Netol Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blessing of Uul-Netol.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Blessing of Xoph" id="Blessing of Xoph"/>
-	            <label for="Blessing of Xoph"> 
+            <input type="checkbox" name="want" value="Blessing of Xoph" id="Blessing of Xoph Want"/>
+	            <label for="Blessing of Xoph Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Blessing of Xoph.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Cartographers Chisel" id="Cartographers Chisel"/>
-	            <label for="Cartographers Chisel"> 
+            <input type="checkbox" name="want" value="Cartographers Chisel" id="Cartographers Chisel Want"/>
+	            <label for="Cartographers Chisel Want">
 	            	<img src= {{ url_for('static', filename = 'currencyIcons/Cartographers Chisel.png') }}>
 	            </label>
 
-            <input type="checkbox" name="want" value="Chaos Orb" id="Chaos Orb"/>
-            <label for="Chaos Orb"> 
+            <input type="checkbox" name="want" value="Chaos Orb" id="Chaos Orb Want"/>
+            <label for="Chaos Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Chaos Orb.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Chromatic Orb" id="Chromatic Orb"/>
-            <label for="Chromatic Orb"> 
+            <input type="checkbox" name="want" value="Chromatic Orb" id="Chromatic Orb Want"/>
+            <label for="Chromatic Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Chromatic Orb.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Divine Orb" id="Divine Orb"/>
-            <label for="Divine Orb"> 
+            <input type="checkbox" name="want" value="Divine Orb" id="Divine Orb Want"/>
+            <label for="Divine Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Divine Orb.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Exalted Orb" id="Exalted Orb"/>
-            <label for="Exalted Orb"> 
+            <input type="checkbox" name="want" value="Exalted Orb" id="Exalted Orb Want"/>
+            <label for="Exalted Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Exalted Orb.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Gemcutters Prism" id="Gemcutters Prism"/>
-            <label for="Gemcutters Prism"> 
+            <input type="checkbox" name="want" value="Gemcutters Prism" id="Gemcutters Prism Want"/>
+            <label for="Gemcutters Prism Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Gemcutters Prism.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Glassblowers Bauble" id="Glassblowers Bauble"/>
-            <label for="Glassblowers Bauble"> 
+            <input type="checkbox" name="want" value="Glassblowers Bauble" id="Glassblowers Bauble Want"/>
+            <label for="Glassblowers Bauble Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Glassblowers Bauble.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Jewellers Orb" id="Jewellers Orb"/>
-            <label for="Jewellers Orb"> 
+            <input type="checkbox" name="want" value="Jewellers Orb" id="Jewellers Orb Want"/>
+            <label for="Jewellers Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Jewellers Orb.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Journeyman Cartographers Seal" id="Journeyman Cartographers Seal"/>
-            <label for="Journeyman Cartographers Seal"> 
+            <input type="checkbox" name="want" value="Journeyman Cartographers Seal" id="Journeyman Cartographers Seal Want"/>
+            <label for="Journeyman Cartographers Seal Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Journeyman Cartographers Seal.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Journeyman Cartographers Sextant" id="Journeyman Cartographers Sextant"/>
-            <label for="Journeyman Cartographers Sextant"> 
+            <input type="checkbox" name="want" value="Journeyman Cartographers Sextant" id="Journeyman Cartographers Sextant Want"/>
+            <label for="Journeyman Cartographers Sextant Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Journeyman Cartographers Sextant.png') }}>
             </label>	
 
-            <input type="checkbox" name="want" value="Master Cartographers Seal" id="Master Cartographers Seal"/>
-            <label for="Master Cartographers Seal"> 
+            <input type="checkbox" name="want" value="Master Cartographers Seal" id="Master Cartographers Seal Want"/>
+            <label for="Master Cartographers Seal Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Master Cartographers Seal.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Master Cartographers Sextant" id="Master Cartographers Sextant"/>
-            <label for="Master Cartographers Sextant"> 
+            <input type="checkbox" name="want" value="Master Cartographers Sextant" id="Master Cartographers Sextant Want"/>
+            <label for="Master Cartographers Sextant Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Master Cartographers Sextant.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Mirror of Kalandra" id="Mirror of Kalandra"/>
-            <label for="Mirror of Kalandra"> 
+            <input type="checkbox" name="want" value="Mirror of Kalandra" id="Mirror of Kalandra Want"/>
+            <label for="Mirror of Kalandra Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Mirror of Kalandra.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Orb of Alchemy" id="Orb of Alchemy"/>
-            <label for="Orb of Alchemy"> 
+            <input type="checkbox" name="want" value="Orb of Alchemy" id="Orb of Alchemy Want"/>
+            <label for="Orb of Alchemy Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Alchemy.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Orb of Alteration" id="Orb of Alteration"/>
-            <label for="Orb of Alteration"> 
+            <input type="checkbox" name="want" value="Orb of Alteration" id="Orb of Alteration Want"/>
+            <label for="Orb of Alteration Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Alteration.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Orb of Augmentation" id="Orb of Augmentation"/>
-            <label for="Orb of Augmentation"> 
+            <input type="checkbox" name="want" value="Orb of Augmentation" id="Orb of Augmentation Want"/>
+            <label for="Orb of Augmentation Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Augmentation.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Orb of Chance" id="Orb of Chance"/>
-            <label for="Orb of Chance"> 
+            <input type="checkbox" name="want" value="Orb of Chance" id="Orb of Chance Want"/>
+            <label for="Orb of Chance Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Chance.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Orb of Fusing" id="Orb of Fusing"/>
-            <label for="Orb of Fusing"> 
+            <input type="checkbox" name="want" value="Orb of Fusing" id="Orb of Fusing Want"/>
+            <label for="Orb of Fusing Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Fusing.png') }}>
             </label>
 
-            <input type="checkbox" name="want" value="Orb of Scouring" id="Orb of Scouring"/>
-            <label for="Orb of Scouring"> 
+            <input type="checkbox" name="want" value="Orb of Scouring" id="Orb of Scouring Want"/>
+            <label for="Orb of Scouring Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Scouring.png') }}>
             </label>    
 
-            <input type="checkbox" name="want" value="Orb of Fusing" id="Orb of Regret"/>
-            <label for="Orb of Regret"> 
+            <input type="checkbox" name="want" value="Orb of Fusing" id="Orb of Regret Want"/>
+            <label for="Orb of Regret Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Regret.png') }}>
             </label>       
 
-            <input type="checkbox" name="want" value="Orb of Transmutation" id="Orb of Transmutation"/>
-            <label for="Orb of Transmutation"> 
+            <input type="checkbox" name="want" value="Orb of Transmutation" id="Orb of Transmutation Want"/>
+            <label for="Orb of Transmutation Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Transmutation.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Perandus Coin" id="Perandus Coin"/>
-            <label for="Perandus Coin"> 
+            <input type="checkbox" name="want" value="Perandus Coin" id="Perandus Coin Want"/>
+            <label for="Perandus Coin Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Perandus Coin.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Portal Scroll" id="Portal Scroll"/>
-            <label for="Portal Scroll"> 
+            <input type="checkbox" name="want" value="Portal Scroll" id="Portal Scroll Want"/>
+            <label for="Portal Scroll Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Portal Scroll.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Prophecy" id="Prophecy"/>
-            <label for="Prophecy"> 
+            <input type="checkbox" name="want" value="Prophecy" id="Prophecy Want"/>
+            <label for="Prophecy Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Prophecy.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Regal Orb" id="Regal Orb"/>
-            <label for="Regal Orb"> 
+            <input type="checkbox" name="want" value="Regal Orb" id="Regal Orb Want"/>
+            <label for="Regal Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Regal Orb.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Scroll of Wisdom" id="Scroll of Wisdom"/>
-            <label for="Scroll of Wisdom"> 
+            <input type="checkbox" name="want" value="Scroll of Wisdom" id="Scroll of Wisdom Want"/>
+            <label for="Scroll of Wisdom Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Scroll of Wisdom.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Silver Coin" id="Silver Coin"/>
-            <label for="Silver Coin"> 
+            <input type="checkbox" name="want" value="Silver Coin" id="Silver Coin Want"/>
+            <label for="Silver Coin Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Silver Coin.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Stacked Deck" id="Stacked Deck"/>
-            <label for="Stacked Deck"> 
+            <input type="checkbox" name="want" value="Stacked Deck" id="Stacked Deck Want"/>
+            <label for="Stacked Deck Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Stacked Deck.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Unshaping Orb" id="Unshaping Orb"/>
-            <label for="Unshaping Orb"> 
+            <input type="checkbox" name="want" value="Unshaping Orb" id="Unshaping Orb Want"/>
+            <label for="Unshaping Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Unshaping Orb.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Vaal Orb" id="Vaal Orb"/>
-            <label for="Vaal Orb"> 
+            <input type="checkbox" name="want" value="Vaal Orb" id="Vaal Orb Want"/>
+            <label for="Vaal Orb Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Vaal Orb.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Alchemy Shard" id="Alchemy Shard"/>
-            <label for="Alchemy Shard"> 
+            <input type="checkbox" name="want" value="Alchemy Shard" id="Alchemy Shard Want"/>
+            <label for="Alchemy Shard Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Alchemy Shard.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Alteration Shard" id="Alteration Shard"/>
-            <label for="Alteration Shard"> 
+            <input type="checkbox" name="want" value="Alteration Shard" id="Alteration Shard Want"/>
+            <label for="Alteration Shard Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Alteration Shard.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Scroll Fragment" id="Scroll Fragment"/>
-            <label for="Scroll Fragment"> 
+            <input type="checkbox" name="want" value="Scroll Fragment" id="Scroll Fragment Want"/>
+            <label for="Scroll Fragment Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Scroll Fragment.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Splinter of Chayula" id="Splinter of Chayula"/>
-            <label for="Splinter of Chayula"> 
+            <input type="checkbox" name="want" value="Splinter of Chayula" id="Splinter of Chayula Want"/>
+            <label for="Splinter of Chayula Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Splinter of Chayula.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Splinter of Esh" id="Splinter of Esh"/>
-            <label for="Splinter of Esh"> 
+            <input type="checkbox" name="want" value="Splinter of Esh" id="Splinter of Esh Want"/>
+            <label for="Splinter of Esh Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Splinter of Esh.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Splinter of Tul" id="Splinter of Tul"/>
-            <label for="Splinter of Tul"> 
+            <input type="checkbox" name="want" value="Splinter of Tul" id="Splinter of Tul Want"/>
+            <label for="Splinter of Tul Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Splinter of Tul.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Splinter of Uul-Netol" id="Splinter of Uul-Netol"/>
-            <label for="Splinter of Uul-Netol"> 
+            <input type="checkbox" name="want" value="Splinter of Uul-Netol" id="Splinter of Uul-Netol Want"/>
+            <label for="Splinter of Uul-Netol Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Splinter of Uul-Netol.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Splinter of Xoph" id="Splinter of Xoph"/>
-            <label for="Splinter of Xoph"> 
+            <input type="checkbox" name="want" value="Splinter of Xoph" id="Splinter of Xoph Want"/>
+            <label for="Splinter of Xoph Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Splinter of Xoph.png') }}>
             </label> 
 
-            <input type="checkbox" name="want" value="Transmutation Shard" id="Transmutation Shard"/>
-            <label for="Transmutation Shard"> 
+            <input type="checkbox" name="want" value="Transmutation Shard" id="Transmutation Shard Want"/>
+            <label for="Transmutation Shard Want">
             	<img src= {{ url_for('static', filename = 'currencyIcons/Transmutation Shard.png') }}>
             </label> 
 

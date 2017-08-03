@@ -1,24 +1,27 @@
 input[type=checkbox] {
-display:none;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: contain;
+-webkit-appearance: none;
+outline: 0;
 }
- 
+
 input[type=checkbox] + label
 {
-background: url("http://www.corporatecomplianceinsights.com/wp-content/uploads/2013/06/Facebook-thumbs-up.jpg") no-repeat;
-background-size: 50%;
-height: 250px;
-width: 250px;
-display:inline-block;
-padding: 0 0 0 0px;
-}
-input[type=checkbox]:checked + label
-{
-background: url("http://thepridepost.com/wp-content/uploads/2013/10/Facebook-thumbs-down.jpg") no-repeat;
-background-size: 50%;
-height: 250px;
-width: 250px;
 display:inline-block;
 padding: 0 0 0 0px;
 }
 
+input[type="checkbox"]:checked + label {
+background: #00FF00;
+}
+
+/*input[type=checkbox]:checked + label*/
+/*{*/
+/*background: #0080FF;*/
+/*height: 16px;*/
+/*width: 16px;*/
+/*display:inline-block;*/
+/*padding: 0 0 0 0px;*/
+/*}*/
  

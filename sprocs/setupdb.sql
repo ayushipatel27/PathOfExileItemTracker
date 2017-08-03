@@ -18,6 +18,9 @@ CREATE TABLE market (
   item_id varchar(128) DEFAULT NULL,
   seller_item int(11) DEFAULT NULL,
   icon varchar(2048) DEFAULT NULL,
+#   item_wanted varchar(128) DEFAULT NULL,
+#   amount_item_traded varchar(128) DEFAULT NULL,
+#   amount_item_wanted varchar(128) DEFAULT NULL,
   note varchar(512) DEFAULT NULL,
   seller_account_id varchar(128) DEFAULT NULL,
   seller_character_name varchar(128) DEFAULT NULL,
@@ -101,4 +104,16 @@ insert into market (item_id, seller_item, icon, note, seller_account_id, seller_
     values (insert_item_id, v_id, insert_icon, insert_note, insert_seller_account_id, insert_seller_character_name, insert_league, insert_quantity);
 end //
 
+delimiter ;
+
+delimiter //
+create procedure get_trade(IN has_item varchar(128))
+begin
+select i.type_line, market.icon, market.note, market.seller_account_id, market.seller_character_name, market.league, market.quantity, market.posted
+from market
+join item i on i.id = market.seller_item
+where i.type_line = has_item
+order by market.posted desc;
+
+end //
 delimiter ;

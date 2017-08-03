@@ -66,6 +66,20 @@ def getMarket():
 	conn.close()
 	return results
 
+def getTrade(trade):
+	# trade = 'CALL get_trade(' + input + ');'
+	conn = makeConnection()
+	c = conn.cursor()
+
+	query = "CALL get_trade ('%s');" % (trade)
+	c.execute(query)
+
+	# Fetch all the rows in a list of lists.
+	results = c.fetchall()
+
+	conn.close()
+	return results
+
 def getItems():
 	conn = makeConnection()
 	c = conn.cursor()
