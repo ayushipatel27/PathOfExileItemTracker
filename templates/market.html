@@ -2,57 +2,90 @@
 
 <html>
 
-<style>
-body {
-    background-color: #191919;
-}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-body {
-    color: #ffffff;
-}
-</style>
+    <title>Market</title>
 
-<head>
-<title>Market</title>
-</head>
+    <link rel="stylesheet" type="text/css" hreh="includes/style.css">
 
-<body>
-<header>
-  <div class="container">
-	<h1>Market DB:</h1>
-  </div>
-</header>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
 
-<main>
-  <div class="container">
-	<table>
-		<tr>
-{#			<th>item_id</th>#}
-			<th>seller_item</th>
-            <th>icon</th>
-			<th>note</th>
-			<th>seller_account_id</th>
-			<th>seller_character_name</th>
-            <th>league</th>
-            <th>quantity</th>
-            <th>posted</th>
-		</tr>
+  <body>
 
-        {% for item in market %}
-        <tr>
-            {% for column in item %}
-                {% if loop.index == 2 %}
-                     <td><img src="{{ column }}"></td>
-                {% else %}
-                    <td>{{ column }}</td>
-                {% endif %}
-            {% endfor %}
-        </tr>
-        {% endfor %}
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Stash Watch</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">USERNAME HERE</a></p>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-	</table>
-  </div>
-</main>
+    <div class="container">
+      <div class="row">
 
-</body>
+          <div class="col-md-2">
+            <div class="sidebar">
+              hello yes i am a sidebar
+            </div>
+          </div>
+
+        <div class="col-md-8">
+          <header>
+            <div class="container">
+          	<h1>Current Market Items: </h1>
+            </div>
+          </header>
+
+          <main>
+            <div class="container">
+          	<table>
+          		<tr>
+                {#<th>item_id</th>#}
+          			<th>seller_item</th>
+                      <th>icon</th>
+          			<th>note</th>
+          			<th>seller_account_id</th>
+          			<th>seller_character_name</th>
+                      <th>league</th>
+                      <th>quantity</th>
+                      <th>posted</th>
+          		</tr>
+
+                  {% for item in market %}
+                  <tr>
+                      {% for column in item %}
+                          {% if loop.index == 2 %}
+                               <td><img src="{{ column }}"></td>
+                          {% else %}
+                              <td>{{ column }}</td>
+                          {% endif %}
+                      {% endfor %}
+                  </tr>
+                  {% endfor %}
+
+          	</table>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script src="includes/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
 </html>
