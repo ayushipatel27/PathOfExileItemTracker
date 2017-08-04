@@ -49,6 +49,21 @@ def parseStash(api_id):
                         type_line = item['typeLine']
                         league = item['league']
                         note = item['note']
+                        note_subs = []
+                        note.strip()
+                        buying = 0#maybe these should be null
+                        selling = 0
+                        if note.find("~b/o", 0, 4) != 1 or note.find("~price", 0, 6) != -1:
+                            note_subs = note.split()
+                        item_wanted = note_subs[2]
+                        price = note_subs[1]
+                        if price.find('/') != -1:
+                            raw_numbers = price.split('/')
+                            buying = int(raw_numbers[0])
+                            selling = int(raw_numbers[1])
+                        elif float(price) > 1:
+                            buying = 1
+                            selling = float(price)
                         quantity = item['stackSize']
                         frame_type = item['frameType']
                         tracked_item = {
@@ -58,7 +73,9 @@ def parseStash(api_id):
                             'icon': icon,
                             'type_line': type_line,
                             'league': league,
-                            'note': note,
+                            'item_wanted': item_wanted,
+                            'amount_item_traded': selling,
+                            'amount_item_wanted': buying,
                             'quantity': quantity,
                             'frame_type': frame_type,
                         }
@@ -89,7 +106,9 @@ def insertItem(**tracked_item):
     type_line = tracked_item['type_line'].strip().translate(str.maketrans({"'":None}))
     # icon appears to be going into the database as "None" it is suppose to be a link to a cdn of items.
     icon = tracked_item['icon'].strip()
-    note = tracked_item['note'].strip()
+    item_wanted = tracked_item['item_wanted'].strip()
+    amount_item_traded = tracked_item['amount_item_traded']
+    amount_item_wanted = tracked_item['amount_item_wanted']
     seller_account_id = tracked_item['seller_account_id'].strip()
     seller_character_name = tracked_item['seller_character_name'].strip()
     league = tracked_item['league'].strip()
@@ -98,7 +117,7 @@ def insertItem(**tracked_item):
     c = conn.cursor()
 
     # Insert item data.
-    query = "CALL post_item ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, note, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
+    query = "CALL post_item ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, item_wanted, amount_item_traded, amount_item_wanted, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
     c.execute(query)
     conn.commit()
     conn.close()
