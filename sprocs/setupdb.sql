@@ -49,7 +49,44 @@ CREATE TABLE tracked(
   PRIMARY KEY (id)
 );
 
+CREATE TABLE user_has_items(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user VARCHAR(128) DEFAULT NULL,
+  item VARCHAR(128) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
 
+CREATE TABLE user_wants_items(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user VARCHAR(128) DEFAULT NULL,
+  item VARCHAR(128) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+
+delimiter //
+create procedure save_has_items(IN insert_has_item varchar(128), IN insert_user varchar(128))
+begin
+declare item varchar(128);
+declare user varchar(128);
+join user s on s.id = users.id
+join item i on i.id = item.id
+insert into user_has_items(user, item) values(insert_user, insert_has_item);
+
+end //
+delimiter ;
+
+delimiter //
+create procedure save_wants_items(IN insert_want_item varchar(128), IN insert_user varchar(128))
+begin
+declare item varchar(128);
+declare user varchar(128);
+join user s on s.id = users.id
+join item i on i.id = item.id
+insert into user_has_items(user, item) values(insert_user, insert_want_item);
+
+end //
+delimiter ;
 
 delimiter //
 create procedure get_market()
