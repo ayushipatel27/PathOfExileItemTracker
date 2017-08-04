@@ -17,7 +17,8 @@ def makeConnection():
 		db=dbStr,
 		user=userStr,
 		passwd=passwdStr,
-		host=hostStr)
+		host=hostStr,
+		charset='utf8')
 	return conn
 
 # void def createUser(**credentials):

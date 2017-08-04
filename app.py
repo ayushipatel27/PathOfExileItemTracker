@@ -18,10 +18,10 @@ def index():
 	return render_template('home.html')
 
 
-@app.route('/market', methods=['GET'])
-def market():
-	market = getMarket()
-	return render_template('market.html', market=market)
+# @app.route('/market', methods=['GET'])
+# def market():
+# 	market = getMarket()
+# 	return render_template('market.html', market=market)
 
 
 class RegisterForm(Form):
@@ -87,7 +87,7 @@ def login():
 			session['username'] = username
 
 			flash('You are now logged in', 'success')
-			return redirect(url_for('home'))
+			return redirect(url_for('index'))
 		else:
 			error = 'Invalid login'
 			return render_template('login.html', error=error)
@@ -115,7 +115,7 @@ def logout():
 	return redirect(url_for('login'))
 
 
-@app.route('/select', methods=['GET', 'POST'])
+@app.route('/market', methods=['GET', 'POST'])
 def selectItems():
 	if request.method == 'POST':
 		has_items = request.form.getlist('has')
@@ -125,17 +125,18 @@ def selectItems():
 		market = []
 		for i in has_items:
 			items = getTrade(i)
+			print(items)
 			market.extend(items)
 		return render_template('market.html', market=market)
 		# for has_index in has_items:
 		# 	has_items[has_index]
-	return render_template('select.html')
+	return render_template('market.html')
 
 @app.route('/test', methods=['GET'])
 def testFunction():
 	market = getMarket()
 	print(market)
-	return render_template('select.html')
+	return render_template('market.html')
 
 # used for debugging in development only!  NOT for production!!!
 if __name__ == "__main__":

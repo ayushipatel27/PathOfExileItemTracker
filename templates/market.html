@@ -163,7 +163,7 @@
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Scouring.png') }}>
             </label>    
 
-            <input type="checkbox" name="has" value="Orb of Fusing" id="Orb of Regret"/>
+            <input type="checkbox" name="has" value="Orb of Regret" id="Orb of Regret"/>
             <label for="Orb of Regret"> 
             	<img src= {{ url_for('static', filename = 'currencyIcons/Orb of Regret.png') }}>
             </label>       
@@ -521,6 +521,8 @@
 
    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
     </form>
+
+    <br>
 
     {% if market is defined %}
     <div class="container">

@@ -16,6 +16,14 @@ input[type="checkbox"]:checked + label {
 background: #00FF00;
 }
 
+body {
+    background-color: #191919;
+}
+
+body {
+    color: #ffffff;
+}
+
 /*input[type=checkbox]:checked + label*/
 /*{*/
 /*background: #0080FF;*/
