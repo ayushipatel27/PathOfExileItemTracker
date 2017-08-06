@@ -2,6 +2,7 @@ import requests
 import sys
 import pymysql
 import time
+from pprint import pprint
 
 # Neat. http://www.network-science.de/ascii/
 def graffiti():
@@ -51,22 +52,25 @@ def parseStash(api_id):
                         note = item['note']
                         note_subs = []
                         note.strip()
-                        buying = 0
-                        selling = 0
+                        buying = 0.0
+                        selling = 0.0
                         if note.find("~b/o", 0, 4) != 1 or note.find("~price", 0, 6) != -1:
                             note_subs = note.split()
-                        if len(note_subs) == 3:
-                            item_wanted = note_subs[2]#possible index out of range here...format
-                        else:
-                            item_wanted = None
-                        price = note_subs[1]
-                        if price.find('/') != -1:
-                            raw_numbers = price.split('/')
-                            buying = float(raw_numbers[0])#got error here...converting 'b' to float???
-                            selling = float(raw_numbers[1])
-                        elif float(price) > 1:
-                            buying = 1
-                            selling = float(price)
+                            if len(note_subs) == 3:
+                                item_wanted = note_subs[2]
+                            else:
+                                item_wanted = None
+                            price = note_subs[1]
+                            if price.find('/') != -1:
+                                raw_numbers = price.split('/')
+                                buying = float(raw_numbers[0])
+                                selling = float(raw_numbers[1])
+                            elif float(price) > 1:
+                                buying = 1.0
+                                selling = float(price)
+                            elif (float(price) < 1) and (float(price) > 0):
+                                buying = 1 / float(price)
+                                selling = 1.0
                         quantity = item['stackSize']
                         frame_type = item['frameType']
                         tracked_item = {
@@ -88,7 +92,7 @@ def parseStash(api_id):
                         # If item cannot be inserted into database it prints the item on the console.
                         except:
                             print("\nERROR entering item!")
-                            print(tracked_item)
+                            pprint(tracked_item)
         # Gets the next ID for the next API stash dump.
         next_id = stash_data['next_change_id']
         # Returns next_id for an endless loop.
@@ -108,6 +112,7 @@ def insertItem(**tracked_item):
     # Attempt at getting rid of apostrophes from type_line (type_line is the item name).
     type_line = tracked_item['type_line'].strip().translate(str.maketrans({"'":None}))
     # icon appears to be going into the database as "None" it is suppose to be a link to a cdn of items.
+    print("****************************inside insertItem*******************************")
     icon = tracked_item['icon'].strip()
     item_wanted = tracked_item['item_wanted'].strip()
     amount_item_traded = tracked_item['amount_item_traded']
@@ -120,8 +125,10 @@ def insertItem(**tracked_item):
     c = conn.cursor()
 
     # Insert item data.
-    query = "CALL post_item ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, item_wanted, amount_item_traded, amount_item_wanted, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
+    print("***************************executing query***************************************")
+    query = "CALL post_item ('%s', '%s', '%s', '%f', '%f', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, item_wanted, amount_item_traded, amount_item_wanted, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
     c.execute(query)
+    print("******************************query executed**********************************")
     conn.commit()
     conn.close()
 

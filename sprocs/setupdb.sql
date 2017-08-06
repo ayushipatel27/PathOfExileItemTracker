@@ -19,8 +19,8 @@ CREATE TABLE market (
   seller_item int(11) DEFAULT NULL,
   icon varchar(2048) DEFAULT NULL,
   item_wanted varchar(512) DEFAULT NULL,
-  amount_item_traded int(11) DEFAULT NULL,
-  amount_item_wanted int(11) DEFAULT NULL,
+  amount_item_traded float(11) DEFAULT NULL,
+  amount_item_wanted float(11) DEFAULT NULL,
   seller_account_id varchar(128) DEFAULT NULL,
   seller_character_name varchar(128) DEFAULT NULL,
   league varchar(128) DEFAULT NULL,
@@ -64,7 +64,7 @@ delimiter ;
 
 
 delimiter //
-create procedure post_item(IN insert_item_id varchar(128), IN insert_icon varchar(2048), IN insert_item_wanted varchar(512), IN insert_amount_item_traded int(11), IN insert_item_wanted int(11), IN insert_seller_account_id varchar(128), IN insert_seller_character_name varchar(128), IN insert_league varchar(128), IN insert_quantity varchar(128), IN insert_type_line varchar(128), IN insert_frame_type varchar(128))
+create procedure post_item(IN insert_item_id varchar(128), IN insert_icon varchar(2048), IN insert_item_wanted varchar(512), IN insert_amount_item_traded float(11), IN insert_amount_item_wanted float(11), IN insert_seller_account_id varchar(128), IN insert_seller_character_name varchar(128), IN insert_league varchar(128), IN insert_quantity varchar(128), IN insert_type_line varchar(128), IN insert_frame_type varchar(128))
 begin
 
 declare v_id int(11);
@@ -72,8 +72,8 @@ declare v_item_id varchar(128);
 declare v_seller_item int(11);
 declare v_icon varchar(2048);
 declare v_item_wanted varchar(512);
-declare v_amount_item_traded int(11);
-declare v_amount_item_wanted int(11);
+declare v_amount_item_traded float(11);
+declare v_amount_item_wanted float(11);
 declare v_seller_account_id varchar(128);
 declare v_seller_account_name varchar(128);
 declare v_league varchar(128);
