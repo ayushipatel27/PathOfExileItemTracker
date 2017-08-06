@@ -23,41 +23,21 @@ def get_data():
     #connect with DB
     conn = makeConnection()
     curs = conn.cursor()
-    '''
-    query = "SELECT * FROM market;"# % (item1)
-    #need to get data from DB
+    #query to pull needed data
+    query = "SELECT seller_item, item_wanted, amount_item_traded, amount_item_wanted  FROM market;"
+    #execute query and store data
     curs.execute(query)
     results = curs.fetchall()
     pricelist = []
-    for row in results:
-        price_line = row[4]
-        trade_item = row[1]
-        #print(trade_item)#debug output
-        price_line.strip()
-        if price_line.find("~b/o", 0, 4) != -1 or price_line.find("~price", 0, 6) != -1:
-            split_string = price_line.split()
-            if split_string[2] == "chaos":#need to change this to a variable of choice
-                pricelist.append(split_string[1])
-                print(split_string[1])#debug output
-        print(price_line)#debug output
-    #return a list of prices
-    conn.close()
-    return pricelist
-    '''
-    query = "SELECT seller_item, item_wanted, ammount_item_traded, amount_item_wanted  FROM market;"
-    #need to get data from DB
-    curs.execute(query)
-    results = curs.fetchall()
-    price_wanted_list = []
-    price_traded_list = []
     item_wanted_list = []
+    #will need to reference this seller_item list to item table in db to get name of item
     seller_item_list = []
     for row in results:
         seller_item_list.append(row[0])
         item_wanted_list.append(row[1].strip())
-        price_traded_list.append(row[2])
-        price_wanted_list.append(row[3])
-        #still thinking about how to do this here....
+        #store the two prices into a list as a 1-2 orderd pair....easier than using dict
+        pricelist.append(row[3])
+        pricelist.append(row[2])
     #return a list of prices
     conn.close()
     return pricelist
@@ -67,28 +47,19 @@ def trends():
     ratio_sum = 0.0
     avg1 = 0.0
     count = 0
+    i = 0
     #get the item prices to do calculations with
     price_list = get_data()
-    #parse the prices into usable numbers
-    for price in price_list:
-        if price.find('/') != -1:
-            raw_numbers = price.split('/')
-            top = int(raw_numbers[0])
-            bot = int(raw_numbers[1])
-            ratio = top / bot
-            ratio_sum = ratio_sum + ratio
-        elif float(price) > 1:
-            #this will only work if the number is greater than 1, will not work on decimals
-            top = 1
-            #need to make sure that things like "4.9" are a number and not a ratio
-            bot = float(price)
-            ratio = top / bot
-            ratio_sum = ratio_sum + ratio
+    while i < len(price_list):
+        ratio_sum = ratio_sum + (price_list[i] / price_list[(i + 1)])
         count = count + 1
+        i = i + 2
     #calculate the average price
     avg1 = ratio_sum / count
-    avg2 = Fraction(avg1)
-    print(avg2)
+    avg2 = Fraction(avg1).limit_denominator(100)#may need to make this limit=1000
+    print(avg1)#test output
+    print(avg2)#test output
+    #need to post this and the appropriate names to the db
     #return the average
     return avg2
 

@@ -51,16 +51,19 @@ def parseStash(api_id):
                         note = item['note']
                         note_subs = []
                         note.strip()
-                        buying = 0#maybe these should be null
+                        buying = 0
                         selling = 0
                         if note.find("~b/o", 0, 4) != 1 or note.find("~price", 0, 6) != -1:
                             note_subs = note.split()
-                        item_wanted = note_subs[2]
+                        if len(note_subs) == 3:
+                            item_wanted = note_subs[2]#possible index out of range here...format
+                        else:
+                            item_wanted = None
                         price = note_subs[1]
                         if price.find('/') != -1:
                             raw_numbers = price.split('/')
-                            buying = int(raw_numbers[0])
-                            selling = int(raw_numbers[1])
+                            buying = float(raw_numbers[0])#got error here...converting 'b' to float???
+                            selling = float(raw_numbers[1])
                         elif float(price) > 1:
                             buying = 1
                             selling = float(price)
