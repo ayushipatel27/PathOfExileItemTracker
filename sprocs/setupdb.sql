@@ -48,7 +48,16 @@ CREATE TABLE tracked(
   PRIMARY KEY (id)
 );
 
-
+CREATE TABLE trends
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  item_buying varchar(512) DEFAULT NULL,
+  price_of_buying float(11) DEFAULT NULL,
+  item_selling varchar(512) DEFAULT NULL,
+  price_of_selling float(11) DEFAULT NULL,
+  day_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  PRIMARY KEY (id)
+);-- not sure if i should store the "price" for each item or just the ratio of the two as one entry
 
 delimiter //
 create procedure get_market()
