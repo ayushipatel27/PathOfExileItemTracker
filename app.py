@@ -1,4 +1,4 @@
-#!/usr/bin/python  
+#!/usr/bin/python
 
 from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -11,7 +11,7 @@ import pymysql
 
 app = Flask(__name__)
 app.secret_key= os.urandom(24)
- 
+
 @app.route("/")
 @app.route("/index")
 def index():
@@ -136,13 +136,13 @@ def saveItems():
 	if request.method == 'POST':
 			has_items = request.form.getlist('has')
 			want_items = request.form.getlist('want')
-			user = session['username'] 
+			user = session['username']
 
 			for i in has_items:
-			save_has_items = saveHasItem(i, user)
+			    save_has_items = saveHasItem(i, user)
 
 			for i in want_items:
-			save_want_items = saveWantItem(i, user)
+			    save_want_items = saveWantItem(i, user)
 
 
 
