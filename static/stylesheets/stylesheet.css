@@ -10,6 +10,17 @@
   text-shadow: 0px 0px 5px #ffffff;
 }
 
+.nav-font{
+  font-family: 'Cinzel', serif;
+  font-weight: normal;
+  font-size: 20pt;
+}
+
+.navbtn-font{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
 h1.title-size{
   font-size: 80pt;
 }
