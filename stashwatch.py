@@ -112,7 +112,6 @@ def insertItem(**tracked_item):
     # Attempt at getting rid of apostrophes from type_line (type_line is the item name).
     type_line = tracked_item['type_line'].strip().translate(str.maketrans({"'":None}))
     # icon appears to be going into the database as "None" it is suppose to be a link to a cdn of items.
-    print("****************************inside insertItem*******************************")
     icon = tracked_item['icon'].strip()
     item_wanted = tracked_item['item_wanted'].strip()
     amount_item_traded = tracked_item['amount_item_traded']
@@ -125,10 +124,8 @@ def insertItem(**tracked_item):
     c = conn.cursor()
 
     # Insert item data.
-    print("***************************executing query***************************************")
     query = "CALL post_item ('%s', '%s', '%s', '%f', '%f', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, item_wanted, amount_item_traded, amount_item_wanted, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
     c.execute(query)
-    print("******************************query executed**********************************")
     conn.commit()
     conn.close()
 
