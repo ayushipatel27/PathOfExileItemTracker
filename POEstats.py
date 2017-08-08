@@ -79,10 +79,12 @@ def trends():
     for row in transactions:
 	    for name in names_list:
             if row[0] == name:
-			    #need another logic statement here to check and see what the other item is and only combine averages of matching sets.....how?.....and how to reformat the avgs dict
-			    sum_dict[name] = sum_dict[name] + (row[2] / row[3])
-                count_dict[name] = count_dict[name] + 1
-			    avgs_dict[name] = Fraction(sum_dict[name] / count_dict[name]).limit_denominator(100)
+			    #need to store values as a dict within the list of the name dict ---> "sum_dict = {'Chaos Orb': [{'exa': '1/10', 'vaal': '1/3'}], 'Ancient Orb': [{'chaos': '1/6'}]}"
+			    sum_dict[name][row[1]] = sum_dict[name] + (row[2] / row[3])#also need to perform check to avoid divide by zero
+				#need to store values as a dict within the list of the name dict
+                count_dict[name][row[1]] = count_dict[name] + 1
+				#need to store values as a dict within the list of the name dict
+			    avgs_dict[name][row[1]] = Fraction(sum_dict[name] / count_dict[name]).limit_denominator(100)
 	return avgs_dict
 
 def post_stats():
