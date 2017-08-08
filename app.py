@@ -10,12 +10,23 @@ import sys, os
 import pymysql
 
 app = Flask(__name__)
+<<<<<<< HEAD
 app.secret_key = os.urandom(24)
+=======
+app.secret_key= os.urandom(24)
+>>>>>>> 052dfde9cb64c95c3f2056cf313dcba179f1f685
 
 @app.route("/")
 @app.route("/index")
 def index():
 	return render_template('home.html')
+
+
+@app.route('/market', methods=['GET'])
+def market():
+	market = getMarket()
+	return render_template('market.html', market=market)
+
 
 class RegisterForm(Form):
 	name = StringField('Name', [validators.Length(min=1, max=50)])
@@ -26,40 +37,6 @@ class RegisterForm(Form):
 		validators.EqualTo('confirm', message='Passwords do not match')
 	])
 	confirm = PasswordField('Confirm Password')
-
-@app.route('/market', methods=['GET'])
-def market():
-	market = getMarket()
-	return render_template('market.html', market=market)
-
-
-def makeConnection():
-	file = open(sys.path[0]+"/dbconfig.txt", "r")
-	dbStr = file.readline().strip()
-	userStr = file.readline().strip()
-	passwdStr = file.readline().strip()
-	hostStr = file.readline().strip()
-	conn = pymysql.connect(
-        db=dbStr,
-        user=userStr,
-        passwd=passwdStr,
-        host=hostStr)
-	return conn
-
-
-def getMarket():
-	conn = makeConnection()
-	c = conn.cursor()
-
-	# Print the contents of the db table.
-	c.execute("CALL get_market();")
-
-	# Fetch all the rows in a list of lists.
-	results = c.fetchall()
-
-	conn.close()
-	return results
-
 
 
 # User Register
@@ -90,17 +67,22 @@ def register():
 def login():
 	if request.method == 'POST':
 		# Get Form Fields
-		un = request.form['username']
+		username = request.form['username']
 		password_candidate = request.form['password']
 
 		loginInfo = {
-		'username' : un,
+		'username' : username,
 		'password' : password_candidate
 		}
 
 		# Get user by username
-		user = getUser(**loginInfo)
-		username, password = getUser(**loginInfo)
+		try:
+			user = getUser(**loginInfo)
+		except TypeError as error:
+			error = 'User does not exsit'
+			return render_template('register.html', error=error)
+		else:
+			username, password = getUser(**loginInfo)
 
 		# Compare Passwords
 		if sha256_crypt.verify(password_candidate, password):
@@ -109,7 +91,7 @@ def login():
 			session['username'] = username
 
 			flash('You are now logged in', 'success')
-			return redirect(url_for('dashboard'))
+			return redirect(url_for('market'))
 		else:
 			error = 'Invalid login'
 			return render_template('login.html', error=error)
@@ -136,10 +118,36 @@ def logout():
 	flash('You are now logged out', 'success')
 	return redirect(url_for('login'))
 
-@app.route('/dashboard')
-@is_logged_in
-def dashboard():
-	return render_template('dashboard.html')
+
+@app.route('/select', methods=['GET', 'POST'])
+def selectItems():
+	if request.method == 'POST':
+		has_items = request.form.getlist('has')
+		want_items = request.form.getlist('want')
+		print(has_items)
+		print(want_items)
+		market = []
+		for i in has_items:
+			items = getTrade(i)
+			market.extend(items)
+		return render_template('market.html', market=market)
+		# for has_index in has_items:
+		# 	has_items[has_index]
+	return render_template('market.html')
+
+@app.route('/save', methods=['GET', 'POST'])
+def saveItems():
+	if request.method == 'POST':
+			has_items = request.form.getlist('has')
+			want_items = request.form.getlist('want')
+			user = session['username']
+
+			for i in has_items:
+			    save_has_items = saveHasItem(i, user)
+
+			for i in want_items:
+			    save_want_items = saveWantItem(i, user)
+
 
 
 # used for debugging in development only!  NOT for production!!!

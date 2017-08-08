@@ -18,6 +18,9 @@ CREATE TABLE market (
   item_id varchar(128) DEFAULT NULL,
   seller_item int(11) DEFAULT NULL,
   icon varchar(2048) DEFAULT NULL,
+#   item_wanted varchar(128) DEFAULT NULL,
+#   amount_item_traded varchar(128) DEFAULT NULL,
+#   amount_item_wanted varchar(128) DEFAULT NULL,
   note varchar(512) DEFAULT NULL,
   seller_account_id varchar(128) DEFAULT NULL,
   seller_character_name varchar(128) DEFAULT NULL,
@@ -46,7 +49,44 @@ CREATE TABLE tracked(
   PRIMARY KEY (id)
 );
 
+CREATE TABLE user_has_items(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user VARCHAR(128) DEFAULT NULL,
+  item VARCHAR(128) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
 
+CREATE TABLE user_wants_items(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user VARCHAR(128) DEFAULT NULL,
+  item VARCHAR(128) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+
+delimiter //
+create procedure save_has_items(IN insert_has_item varchar(128), IN insert_user varchar(128))
+begin
+declare item varchar(128);
+declare user varchar(128);
+join user s on s.id = users.id
+join item i on i.id = item.id
+insert into user_has_items(user, item) values(insert_user, insert_has_item);
+
+end //
+delimiter ;
+
+delimiter //
+create procedure save_wants_items(IN insert_want_item varchar(128), IN insert_user varchar(128))
+begin
+declare item varchar(128);
+declare user varchar(128);
+join user s on s.id = users.id
+join item i on i.id = item.id
+insert into user_has_items(user, item) values(insert_user, insert_want_item);
+
+end //
+delimiter ;
 
 delimiter //
 create procedure get_market()
@@ -59,7 +99,14 @@ order by market.posted desc;
 end //
 delimiter ;
 
+delimiter //
+create procedure get_items()
+begin
+select item.type_line
+from item;
 
+end //
+delimiter ;
 
 delimiter //
 create procedure post_item(IN insert_item_id varchar(128), IN insert_icon varchar(2048), IN insert_note varchar(512), IN insert_seller_account_id varchar(128), IN insert_seller_character_name varchar(128), IN insert_league varchar(128), IN insert_quantity varchar(128), IN insert_type_line varchar(128), IN insert_frame_type varchar(128))
@@ -94,4 +141,16 @@ insert into market (item_id, seller_item, icon, note, seller_account_id, seller_
     values (insert_item_id, v_id, insert_icon, insert_note, insert_seller_account_id, insert_seller_character_name, insert_league, insert_quantity);
 end //
 
+delimiter ;
+
+delimiter //
+create procedure get_trade(IN has_item varchar(128))
+begin
+select i.type_line, market.icon, market.note, market.seller_account_id, market.seller_character_name, market.league, market.quantity, market.posted
+from market
+join item i on i.id = market.seller_item
+where i.type_line = has_item
+order by market.posted desc;
+
+end //
 delimiter ;

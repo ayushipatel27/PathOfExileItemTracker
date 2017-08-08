@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<<<<<<< HEAD
   <div class="jumbotron text-center">
     <h2>
       Welcome to
@@ -16,4 +17,30 @@
       <a href="/login" class="btn btn-success btn-lg">Login</a>
     {% endif %}
   </div>
+=======
+
+  <div class="jumbotron background-jumbotron">
+    <div class="container">
+      <div class="jumbotron text-center title-jumbotron">
+
+
+        <h2 class="title-font">Welcome to</h2>
+        <h1 class="title-font title-size">Stash Watch</h1>
+        <h3 class="lighter title-font">A Path of Exile item tracker and trading app</h3>
+        <br></br>
+
+        {% if session.logged_in == NULL %}
+          <a href="/register" class="btn btn-primary btn-lg btn-register">Register</a>
+          <a href="/login" class="btn btn-success btn-lg btn-login">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="title-font">What is Stash Watch?</h1>
+      <p class="detail-font">Stash Watch is ..... </p>
+  </div>
+
+>>>>>>> 052dfde9cb64c95c3f2056cf313dcba179f1f685
 {% endblock %}
