@@ -2,9 +2,6 @@ import sys
 import pymysql
 from fractions import Fraction
 
-#need code to pull stuff from DB
-
-#need code to analyze the numbers and put out something new
 def makeConnection():
     file = open(sys.path[0]+"/dbconfig.txt", "r")
     dbStr = file.readline().strip()

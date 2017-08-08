@@ -55,7 +55,7 @@ CREATE TABLE trends
   price_of_buying float(11) DEFAULT NULL,
   item_selling varchar(512) DEFAULT NULL,
   price_of_selling float(11) DEFAULT NULL,
-  day_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  day_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );-- not sure if i should store the "price" for each item or just the ratio of the two as one entry
 
