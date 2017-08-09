@@ -9,6 +9,8 @@
 <!-- <head>
 </head> -->
 
+    <div class="container">
+
     <form method="POST" action="">
     <div class="row">
         <div class="col-xs-6">
@@ -519,8 +521,15 @@
         </div>
     </div>
 
-   <p><input type="submit" class="btn btn-primary" value="Submit"></p>
-   <p><input type="submit" class="btn btn-primary" value="Save"></p>
+   <p>
+       <input type="submit" class="btn btn-primary" value="Search">
+       {% if session['username'] is defined %}
+       <input type="submit" class="btn btn-primary pull-right" value="Save">
+       {% endif %}
+   </p>
+
+    </div>
+
 
     </form>
 

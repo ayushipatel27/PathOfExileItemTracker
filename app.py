@@ -1,4 +1,4 @@
-#!/usr/bin/python  
+#!/usr/bin/python
 
 from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -13,7 +13,7 @@ from operator import itemgetter, attrgetter, methodcaller
 
 app = Flask(__name__)
 app.secret_key= os.urandom(24)
- 
+
 @app.route("/")
 @app.route("/index")
 def index():
