@@ -1,98 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="116efa30-8ef6-4b98-9743-145962a61642" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Albino Rhoa Feather.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Alchemy Shard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Alteration Shard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Apprentice Cartographers Seal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Apprentice Cartographers Sextant.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Armourers Scrap.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blacksmiths Whetstone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blessed Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blessing of Chayula.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blessing of Esh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blessing of Tul.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blessing of Uul-Netol.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Blessing of Xoph.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Cartographers Chisel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Chaos Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Chromatic Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Divine Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Exalted Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Gemcutters Prism.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Glassblowers Bauble.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Jewellers Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Journeyman Cartographers Seal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Journeyman Cartographers Sextant.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Master Cartographers Seal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Master Cartographers Sextant.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Mirror of Kalandra.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Alchemy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Alteration.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Augmentation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Chance.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Fusing.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Regret.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Scouring.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Orb of Transmutation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Perandus Coin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Portal Scroll.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Prophecy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Regal Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Scroll Fragment.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Scroll of Wisdom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Silver Coin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Splinter of Chayula.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Splinter of Esh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Splinter of Tul.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Splinter of Uul-Netol.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Splinter of Xoph.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Stacked Deck.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Transmutation Shard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Unshaping Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/currencyIcons/Vaal Orb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/POE-Background.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemcreator.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/stylesheets/icon.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/stylesheets/stylesheet.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/stylesheets/stylesheet.css.orig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap-theme.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/css/bootstrap.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/bootstrap/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/includes/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testing.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/dashboard.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PathOfExileItemTracker.iml" afterPath="$PROJECT_DIR$/.idea/PathOfExileItemTracker.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap.sh" afterPath="$PROJECT_DIR$/bootstrap.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbfunctions.py" afterPath="$PROJECT_DIR$/dbfunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sprocs/setupdb.sql" afterPath="$PROJECT_DIR$/sprocs/setupdb.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stashwatch.py" afterPath="$PROJECT_DIR$/stashwatch.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/includes/_messages.html" afterPath="$PROJECT_DIR$/templates/includes/_messages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/includes/_navbar.html" afterPath="$PROJECT_DIR$/templates/includes/_navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/market.html" afterPath="$PROJECT_DIR$/templates/market.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/register.html" afterPath="$PROJECT_DIR$/templates/register.html" />
-    </list>
+    <list default="true" id="116efa30-8ef6-4b98-9743-145962a61642" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -185,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stashwatch.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stashwatch.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stashwatch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -207,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setupdb.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="setupdb.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sprocs/setupdb.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            <state relative-caret-position="119">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -952,16 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stashwatch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/itemcreator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="631">
@@ -972,9 +871,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sprocs/setupdb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="119">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stashwatch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
