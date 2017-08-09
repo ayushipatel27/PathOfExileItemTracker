@@ -54,6 +54,31 @@ def getUser(**loginInfo):
 	conn.close()
 	return username, password
 
+def saveHasItem(hasItem, user):
+	conn = makeConnection()
+	c = conn.cursor()
+
+	query = "CALL save_has_items('%s, %s');" %(hasItem) %(user)
+	c.execute(query)
+
+	# Fetch all the rows in a list of lists.
+	results = c.fetchall()
+
+	conn.close()
+
+def saveWantItem(wantItem, user):
+	conn = makeConnection()
+	c = conn.cursor()
+
+	query = "CALL save_wants_items('%s, %s');" %(wantItem) %(user)
+	c.execute(query)
+
+	# Fetch all the rows in a list of lists.
+	results = c.fetchall()
+
+	conn.close()
+
+
 def getMarket():
 	conn = makeConnection()
 	c = conn.cursor()

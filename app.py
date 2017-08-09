@@ -59,11 +59,11 @@ def register():
 def login():
 	if request.method == 'POST':
 		# Get Form Fields
-		un = request.form['username']
+		username = request.form['username']
 		password_candidate = request.form['password']
 
 		loginInfo = {
-		'username' : un,
+		'username' : username,
 		'password' : password_candidate
 		}
 
@@ -83,7 +83,7 @@ def login():
 			session['username'] = username
 
 			flash('You are now logged in', 'success')
-			return redirect(url_for('index'))
+			return redirect(url_for('market'))
 		else:
 			error = 'Invalid login'
 			return render_template('login.html', error=error)
@@ -129,11 +129,18 @@ def selectItems():
 		# 	has_items[has_index]
 	return render_template('market.html')
 
-@app.route('/test', methods=['GET'])
-def testFunction():
-	market = getMarket()
-	print(market)
-	return render_template('market.html')
+@app.route('/save', methods=['GET', 'POST'])
+def saveItems():
+	if request.method == 'POST':
+			has_items = request.form.getlist('has')
+			want_items = request.form.getlist('want')
+			user = session['username']
+			for i in has_items:
+				save_has_items = saveHasItem(i, user)
+			for i in want_items:
+				save_want_items = saveWantItem(i, user)
+
+
 
 # used for debugging in development only!  NOT for production!!!
 if __name__ == "__main__":

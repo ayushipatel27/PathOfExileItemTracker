@@ -58,6 +58,9 @@ CREATE TABLE json_stashes(
 
 
 
+
+
+
 delimiter //
 create procedure get_market()
 begin
