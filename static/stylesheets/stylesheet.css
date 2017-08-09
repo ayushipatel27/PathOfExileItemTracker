@@ -69,20 +69,32 @@ h1.title-size{
   height: 200vh;
   width: 350px;
   background-color: pink;
-  padding-left: 50px;
-  margin-right: 50px;
+  padding-left: 40px;
+  padding-right: 35px;
+
 }
 
 .sidebar-text{
   font-family: 'Cinzel', serif;
-  font-size: 30pt;
+  font-size: 25pt;
   text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .market-size{
   margin-top: 50px;
-  margin-left: 50px;
-  padding-left: 50px;
+  margin-left: 100px;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding right: 50px;
+  border: solid 1px;
+}
+
+.market-table td{
+    min-width: 80px;
+    /*padding-right: 10px;*/
+    padding-bottom: 10px;
 }
 
 .form-detail {
@@ -103,4 +115,8 @@ h1.title-size{
 .btn-register{
   background-color: #323232;
   border-color: #323232;
+}
+
+.item-align{
+  padding-left: 20px;
 }
