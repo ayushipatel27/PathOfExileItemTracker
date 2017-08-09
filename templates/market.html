@@ -528,22 +528,21 @@
        {% endif %}
    </p>
 
-    </div>
-
 
     </form>
-
+    </div>
     <br>
 
     {% if market is defined %}
     <div class="container">
+    <div class="market-table">
 	<table>
 		<tr>
             <th>Selling</th>
-            <th>&nbsp;</th>
-  			<th>&nbsp;</th>
-  			<th>for</th>
-  			<th>&nbsp;</th>
+            <th></th>
+  			<th></th>
+  			<th></th>
+  			<th></th>
             <th>Buying</th>
             <th>Name</th>
             <th>League</th>
@@ -556,8 +555,9 @@
             {% for column in item %}
                 {% if loop.index == 2 %}
                      <td><img src="{{ column }}"></td>
-                {% elif column == 4 %}
-                    <td>&nbsp;&nbsp;&nbsp;</td>
+                {% elif loop.index == 4 %}
+                    <td>for</td>
+                    <td>{{ column }}</td>
                 {% else %}
                     <td>{{ column }}</td>
                 {% endif %}
@@ -566,7 +566,6 @@
         {% endfor %}
 
 	</table>
-  </div>
+  </div></div>
     {% endif %}
 {% endblock %}
-
