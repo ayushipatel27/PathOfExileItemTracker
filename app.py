@@ -8,6 +8,8 @@ from dbfunctions import *
 import json
 import sys, os
 import pymysql
+import pprint
+from operator import itemgetter, attrgetter, methodcaller
 
 app = Flask(__name__)
 app.secret_key= os.urandom(24)
@@ -16,12 +18,6 @@ app.secret_key= os.urandom(24)
 @app.route("/index")
 def index():
 	return render_template('home.html')
-
-
-# @app.route('/market', methods=['GET'])
-# def market():
-# 	market = getMarket()
-# 	return render_template('market.html', market=market)
 
 
 class RegisterForm(Form):
@@ -124,9 +120,10 @@ def selectItems():
 		print(want_items)
 		market = []
 		for i in has_items:
-			items = getTrade(i)
-			print(items)
-			market.extend(items)
+			for j in want_items:
+				items = getTrade(i, j)
+				market.extend(items)
+		market = sorted(market, key=itemgetter(8), reverse=True)
 		return render_template('market.html', market=market)
 		# for has_index in has_items:
 		# 	has_items[has_index]

@@ -67,12 +67,12 @@ def getMarket():
 	conn.close()
 	return results
 
-def getTrade(trade):
+def getTrade(has, want):
 	# trade = 'CALL get_trade(' + input + ');'
 	conn = makeConnection()
 	c = conn.cursor()
 
-	query = "CALL get_trade ('%s');" % (trade)
+	query = "CALL get_trade ('%s', '%s');" % (has, want)
 	c.execute(query)
 
 	# Fetch all the rows in a list of lists.
@@ -93,3 +93,49 @@ def getItems():
 
 	conn.close()
 	return results
+
+# Inserts item into database.
+def insertItem(**tracked_item):
+	item_id = tracked_item['item_id'].strip()
+	frame_type = tracked_item['frame_type']
+	# Attempt at getting rid of apostrophes from type_line (type_line is the item name).
+	type_line = tracked_item['type_line'].strip().translate(str.maketrans({"'":None}))
+	# icon appears to be going into the database as "None" it is suppose to be a link to a cdn of items.
+	icon = tracked_item['icon'].strip()
+	item_wanted = tracked_item['item_wanted'].strip()
+	seller_paying_amount = tracked_item['seller_paying_amount']
+	seller_wanting_amount = tracked_item['seller_wanting_amount']
+	seller_account_id = tracked_item['seller_account_id'].strip()
+	seller_character_name = tracked_item['seller_character_name'].strip()
+	league = tracked_item['league'].strip()
+	quantity = tracked_item['quantity']
+	conn = makeConnection()
+	c = conn.cursor()
+	query = "CALL post_item ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (item_id, icon, item_wanted, seller_paying_amount, seller_wanting_amount, seller_account_id, seller_character_name, league, quantity, type_line, frame_type)
+	c.execute(query)
+	conn.commit()
+	conn.close()
+
+
+def updateJsonId(last_id, next_id):
+	try:
+		conn = makeConnection()
+		c = conn.cursor()
+		query = "CALL update_json_id('%s', '%s');" % (last_id, next_id)
+		c.execute(query)
+		conn.commit()
+		conn.close()
+	except:
+		print('Error Updating POE JSON IDs')
+
+def getNextJsonId():
+	try:
+		conn = makeConnection()
+		c = conn.cursor()
+		query = "CALL get_next_id();"
+		c.execute(query)
+		results = c.fetchall()
+		conn.close()
+		return results
+	except:
+		print('Error getting POE JSON ID')
