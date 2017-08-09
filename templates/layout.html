@@ -1,16 +1,24 @@
 <!doctype html>
 <html>
+
 	<head>
-		<title>Path Of Exile Item Tracker</title>
-		<link rel='stylesheet' href= 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+		<title>Stash Watch</title>
+
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+		<link rel='stylesheet' href='static/stylesheets/stylesheet.css' type='text/css'>
+
 	</head>
+
 	<body>
 
 		{% include 'includes/_navbar.html' %}
-		<div class="container">
+		<!-- commented this out because its preventing certain UI changes. I fixed all of the other pages the needed the container. //Tarra Kuhn-->
+		<!-- <div class="container"> -->
 		    {% include 'includes/_messages.html' %}
 			{% block body %}{% endblock %}
 		</div>
-		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -1,16 +1,22 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Login</h1>
-  <form action="" method="POST">
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" name="username" class="form-control" value={{request.form.username}}>
+<div class="jumbotron background-jumbotron bg-jumbotron-logreg">
+  <div class="container">
+    <div class="jumbotron text-center title-jumbotron">
+      <h1 class="title-font">Login</h1>
+      <form action="" method="POST">
+        <div class="form-group">
+          <label class="detail-font">Username</label>
+          <input type="text" name="username" class="form-control" value={{request.form.username}}>
+        </div>
+        <div class="form-group">
+          <label class="detail-font">Password</label>
+          <input type="password" name="password" class="form-control" value={{request.form.password}}>
+        </div>
+        <button type="submit" class="btn btn-primary btn-login">Submit</button>
+      </form>
     </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" name="password" class="form-control" value={{request.form.password}}>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
+</div>
 {% endblock %}
