@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Authors: Bryan Arretteig, Craig Brewton, Tarra Khun, Ayushi Patel
 
-from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging, json
+from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging, jsonify
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
@@ -74,7 +74,7 @@ def login():
 		# Get user by username
 		try:
 			user = getUser(**loginInfo)
-		except TypeError as error:
+		except:
 			error = 'User does not exist'
 			return render_template('register.html', error=error)
 		else:
@@ -89,7 +89,7 @@ def login():
 			flash('You are now logged in', 'success')
 			return redirect(url_for('index'))
 		else:
-			error = 'Invalid login'
+			error = 'Invalid Password'
 			return render_template('login.html', error=error)
 
 
@@ -111,7 +111,7 @@ def is_logged_in(f):
 @is_logged_in
 def logout():
 	session.clear()
-	flash('You are now logged out', 'success')
+	# flash('You are now logged out', 'success')
 	return redirect(url_for('index'))
 
 
@@ -131,16 +131,45 @@ def selectItems():
 		# 	has_items[has_index]
 	return render_template('market.html')
 
-@app.route('/save', methods=['GET', 'POST'])
-def saveItems():
-	if request.method == 'POST':
-			has_items = request.form.getlist('has')
-			want_items = request.form.getlist('want')
-			user = session['username']
-			for i in has_items:
-				save_has_items = saveHasItem(i, user)
-			for i in want_items:
-				save_want_items = saveWantItem(i, user)
+@app.route('/marketItems', methods=['GET'])
+def marketItems():
+	has_items = request.args.getlist('has')
+	want_items = request.args.getlist('want')
+	# print("has", has_items)
+	# print("want", want_items)
+	market = []
+	for i in has_items:
+		for j in want_items:
+			items = getTrade(i, j)
+			for item in items:
+				buy_image = "static/currencyIcons/" + item[4] + ".png"
+				if(item[2] != "0.0" and item[3] != "0.0"):
+					market.append({
+						"selling": item[0],
+						"image": item[1],
+						"val1": item[2],
+						"val2": item[3],
+						"buying": buy_image,
+						"name": item[5],
+						"league": item[6],
+						"quantity": item[7],
+						"date": item[8]
+					})
+	market = sorted(market, key=lambda x: x['date'], reverse=False)
+
+	data = {"market" : market}
+	return jsonify(data)
+
+# @app.route('/save', methods=['GET', 'POST'])
+# def saveItems():
+# 	if request.method == 'POST':
+# 			has_items = request.form.getlist('has')
+# 			want_items = request.form.getlist('want')
+# 			user = session['username']
+# 			for i in has_items:
+# 				save_has_items = saveHasItem(i, user)
+# 			for i in want_items:
+# 				save_want_items = saveWantItem(i, user)
 
 
 @app.route('/api-ids-json')

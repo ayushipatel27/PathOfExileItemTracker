@@ -36,7 +36,7 @@ def attemptSplitNote(note):
             seller_wanting_amount = 1.0
     else:
         print("ITEM NOT FOR SALE")
-        quit(1)
+        return
     tracked_item['seller_paying_amount'] = seller_paying_amount
     tracked_item['seller_wanting_amount'] = seller_wanting_amount
     tracked_item['item_wanted'] = item_wanted

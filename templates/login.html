@@ -8,6 +8,23 @@
           <div class="col-xs-6">
     <div class="jumbotron text-center title-jumbotron">
       <h1 class="title-font">Login</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissable" role="alert">{{ message }}
+        </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    {% if error %}
+  <div class="alert alert-warning alert-dismissible" role="alert">{{error}}
+  </div>
+{% endif %}
+
+{% if msg %}
+  <div class="alert alert-success alert-dismissable" role="alert">{{msg}}
+  </div>
+{% endif %}
           <form action="" method="POST">
             <div class="form-group">
               <label class="detail-font">Username</label>

@@ -9,11 +9,11 @@ import pymysql.cursors
 # pymysql.connect def makeConnection():
 def makeConnection():
 
-	file = open(sys.path[0]+"/dbconfig.txt", "r")   
-	dbStr = file.readline().strip() 
-	userStr = file.readline().strip() 
-	passwdStr = file.readline().strip() 
-	hostStr = file.readline().strip() 
+	file = open(sys.path[0]+"/dbconfig.txt", "r")
+	dbStr = file.readline().strip()
+	userStr = file.readline().strip()
+	passwdStr = file.readline().strip()
+	hostStr = file.readline().strip()
 
 	conn = pymysql.connect(
 		db=dbStr,

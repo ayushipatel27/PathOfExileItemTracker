@@ -21,6 +21,11 @@
   font-size: 20px;
 }
 
+.nav-shadow{
+  box-shadow: 0px 2px 15px black;
+
+}
+
 h1.title-size{
   font-size: 80pt;
 }
@@ -62,23 +67,50 @@ h1.title-size{
 }
 
 .sidebar{
-  height: 200vh;
+  margin-top: 60px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   width: 350px;
-  background-color: pink;
-  padding-left: 50px;
-  margin-right: 50px;
+  background-color: rgba(51,51,51,0.7);
+  padding-left: 40px;
+  padding-right: 35px;
+  box-shadow: 2px 0px 15px black;
+
 }
 
 .sidebar-text{
   font-family: 'Cinzel', serif;
-  font-size: 30pt;
+  color: #999;
+  font-size: 25pt;
+  text-shadow: 0px 0px 20px black;
   text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.market-bg{
+  background-image: url('/static/images/ascendancy-bg.jpg');
+  background-position:top;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-color: black;
+  overflow-x: hidden;
 }
 
 .market-size{
-  margin-top: 50px;
-  margin-left: 50px;
-  padding-left: 50px;
+  margin-top: 60px;
+  margin-left: 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  /*padding-right: 30px;*/
+  align-items: center;
+}
+
+.market-table td{
+    min-width: 40px;
+    padding-right: 20px;
+    padding-bottom: 10px;
 }
 
 .form-detail {
@@ -92,6 +124,11 @@ h1.title-size{
 }
 
 .btn-login{
+  background-color: #BD5151;
+  border-color: #BD5151;
+}
+
+.btn-login:hover, .btn-login:active{
   background-color: #BD5151;
   border-color: #BD5151;
 }
@@ -136,4 +173,42 @@ h1.title-size{
   font-size: 22px;
   text-shadow: 0px 0px 5px #c1c1c1;
   font-weight: bolder;
+}
+.item-align{
+  padding-left: 20px;
+}
+
+tr {
+  margin: 50px;
+  padding: 20px 5px 20px 5px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  color: #999;
+  text-shadow: 0px 0px 2px #777;
+
+  background-color: rgba(51,51,51,0.7);
+}
+
+td{
+  padding-top: .5em;
+  padding-bottom: .5em;
+  white-space: nowrap;
+  /*overflow: hidden;*/
+}
+
+td:first-child{
+  padding-left: 20px;
+}
+
+th{
+  font-family: 'Cinzel', serif;
+  font-weight: bolder;
+  color: #999;
+  text-shadow: 0px 0px 5px #777;
+  font-size: 18px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
 }
