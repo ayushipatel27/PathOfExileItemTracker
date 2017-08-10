@@ -135,10 +135,15 @@ def saveItems():
 			has_items = request.form.getlist('has')
 			want_items = request.form.getlist('want')
 			user = session['username']
+			description = request.form['description']
+			saveBarter(user, description)
 			for i in has_items:
 				save_has_items = saveHasItem(i, user)
 			for i in want_items:
 				save_want_items = saveWantItem(i, user)
+			# barter = lookupBarter(user, description)
+			return render_template('market.html')
+	return render_template("market.html")
 
 
 

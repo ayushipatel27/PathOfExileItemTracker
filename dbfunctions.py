@@ -54,28 +54,44 @@ def getUser(**loginInfo):
 	conn.close()
 	return username, password
 
+def saveBarter(user, description):
+	conn = makeConnection()
+	c = conn.cursor()
+
+	query = "CALL save_barter('%s, %s');" %(user, description)
+	c.execute(query)
+
+	conn.commit()
+	conn.close()
+
 def saveHasItem(hasItem, user):
 	conn = makeConnection()
 	c = conn.cursor()
 
-	query = "CALL save_has_items('%s, %s');" %(hasItem) %(user)
+	query = "CALL save_has_items('%s, %s');" %(hasItem, user)
 	c.execute(query)
 
-	# Fetch all the rows in a list of lists.
-	results = c.fetchall()
-
+	conn.commit()
 	conn.close()
 
 def saveWantItem(wantItem, user):
 	conn = makeConnection()
 	c = conn.cursor()
 
-	query = "CALL save_wants_items('%s, %s');" %(wantItem) %(user)
+	query = "CALL save_wants_items('%s,, %s');" %(wantItem, user)
 	c.execute(query)
 
-	# Fetch all the rows in a list of lists.
-	results = c.fetchall()
+	conn.commit();
+	conn.close()
 
+def lookupBarter(user, description):
+	conn = makeConnection()
+	c = conn.cursor()
+
+	query = "CALL lookup_barter('%s, %s');" %(user, description)
+	c.execute(query)
+
+	conn.commit()
 	conn.close()
 
 
