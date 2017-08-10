@@ -180,3 +180,15 @@ def getNextJsonId():
 		return results
 	except:
 		print('Error getting POE JSON ID')
+
+def getApiInfo():
+	try:
+		conn = makeConnection()
+		c = conn.cursor()
+		query = "CALL get_stashwatch_api_ids();"
+		c.execute(query)
+		results = c.fetchall()
+		conn.close()
+		return results
+	except:
+		print('Error getting STASHWATCH API JSON')

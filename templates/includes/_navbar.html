@@ -14,7 +14,7 @@
           <ul class="nav navbar-nav navbar-right navbtn-font">
             {% if session.logged_in %}
               <li><a href="/market">Market</a></li>
-              <li><a href="/logout">Logout</a></li>
+              <li><a href="/logout">Logout ({{ session['username'] }})</a></li>
             {% else %}
               <li><a href="/register">Register</a></li>
               <li><a href="/login">Login</a></li>
