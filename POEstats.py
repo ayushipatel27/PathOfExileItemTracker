@@ -1,7 +1,6 @@
 import sys
 import pymysql
 from fractions import Fraction
-from pprint import pprint
 
 def makeConnection():
     file = open(sys.path[0]+"/dbconfig.txt", "r")
@@ -21,7 +20,7 @@ def get_data():
     conn = makeConnection()
     curs = conn.cursor()
     #query to pull needed data
-    query = "SELECT seller_item, item_wanted, amount_item_traded, amount_item_wanted  FROM market;"
+    query = "SELECT seller_item, item_wanted, seller_paying_amount, seller_buying_amount  FROM market;"
     #execute query and store data
     curs.execute(query)
     results = curs.fetchall()
@@ -58,14 +57,14 @@ def trends():
                 want = str(row[1].strip('\''))
                 if want in sum_dict[name].keys():
                     running_total = sum_dict[name][want]
-                    if row[3] != 0:
-                        running_total = running_total + (row[2] / row[3])
+                    if float(row[3]) != 0:
+                        running_total = running_total + (float(row[2]) / float(row[3]))
                     sum_dict[name][want] = running_total
                 else:
-                    if row[3] != 0:
-                        sum_dict[name][want] = (row[2] / row[3])
+                    if float(row[3]) != 0:
+                        sum_dict[name][want] = (float(row[2]) / float(row[3]))
                     else:
-                        sum_dict[name][want] = 0#not sure about this....just a test case to solve a problem....maybe brians version of split note will fix it
+                        sum_dict[name][want] = 0#fall back case
                 if want in count_dict[name].keys():
                     running_count = count_dict[name][want]
                     running_count = running_count + 1
@@ -82,30 +81,34 @@ def trends():
                     numerator = sum_dict[name][want]
                     denominator = count_dict[name][want]
                     running_avg = running_avg + (numerator / denominator)
-                    avgs_dict[name][want] = running_avg
+                    avgs_dict[name][want] = Fraction(str(running_avg)).limit_denominator(100)
                 else:
                     numerator = sum_dict[name][want]
                     denominator = count_dict[name][want]
-                    avgs_dict[name][want] = (numerator / denominator)
-    #pprint(sum_dict)
-    #pprint(count_dict)
-    pprint(avgs_dict)
-    #avgs_dict[name][row[1]] = Fraction(sum_dict[name][row[1]] / count_dict[name][row[1]]).limit_denominator(100)
+                    avgs_dict[name][want] = Fraction(str((numerator / denominator))).limit_denominator(100)
     return avgs_dict
 
 def post_stats():
     #put the data in the trends table in this order: selling_item, ratio, buying_item
-	conn = makeConnection()
-	curs = conn.cursor()
-	transactions = get_item_name()
-	#need a for loop here to go through the transactions
-	prices = trends()
-	#also need a loop to go through the averages
-	query = None
-	curs.execute(query)
-	
-	return 1 
-	
-#get_data()
-trends()
+    conn = makeConnection()
+    curs = conn.cursor()
+    #need a for loop here to go through the transactions
+    trends_dict = trends()
+    #cycle through dict and insert items into 'trends' table as you go
+    for sell, buy in trends_dict.items():
+        for want, price in buy.items():
+            query = "INSERT INTO trends (item_buying, avg_price, item_selling) VALUES ('%s', '%s', '%s');" % (want, str(price), sell)
+            try:
+                # Tries to insert item into the database.
+                curs.execute(query)
+                conn.commit()
+            except pymysql.InternalError as error:
+                # If item cannot be inserted into database it prints the item on the console
+                print("\nERROR entering item!")
+                print(sell)
+                print(buy)
+                print(error)
+    conn.close()
+    return 1
 
+post_stats()

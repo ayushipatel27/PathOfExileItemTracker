@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
-from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging
+from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging, json
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from dbfunctions import *
+from POEstats import trends
+import datetime
 import json
 import sys, os
 import pymysql
@@ -71,7 +73,7 @@ def login():
 		try:
 			user = getUser(**loginInfo)
 		except TypeError as error:
-			error = 'User does not exsit'
+			error = 'User does not exist'
 			return render_template('register.html', error=error)
 		else:
 			username, password = getUser(**loginInfo)
@@ -80,10 +82,10 @@ def login():
 		if sha256_crypt.verify(password_candidate, password):
 			# Passed
 			session['logged_in'] = True
-			session['username'] = username
+			session['username'] = loginInfo['username']
 
 			flash('You are now logged in', 'success')
-			return redirect(url_for('market'))
+			return redirect(url_for('index'))
 		else:
 			error = 'Invalid login'
 			return render_template('login.html', error=error)
@@ -99,7 +101,7 @@ def is_logged_in(f):
 			return f(*args, **kwargs)
 		else:
 			flash('Unauthorized, Please login', 'danger')
-			return redirect(url_for('login'))
+			return redirect(url_for('index'))
 	return wrap
 
 # Logout
@@ -108,7 +110,7 @@ def is_logged_in(f):
 def logout():
 	session.clear()
 	flash('You are now logged out', 'success')
-	return redirect(url_for('login'))
+	return redirect(url_for('index'))
 
 
 @app.route('/market', methods=['GET', 'POST'])
@@ -116,8 +118,6 @@ def selectItems():
 	if request.method == 'POST':
 		has_items = request.form.getlist('has')
 		want_items = request.form.getlist('want')
-		print(has_items)
-		print(want_items)
 		market = []
 		for i in has_items:
 			for j in want_items:
@@ -141,6 +141,30 @@ def saveItems():
 				save_want_items = saveWantItem(i, user)
 
 
+@app.route('/JSON')
+def returnJSON():
+	api_info = getApiInfo()
+	last_id = api_info[0][0]
+	next_id = api_info[0][1]
+	date = api_info[0][2].strftime("%Y-%m-%d %H:%M:%S.%f")
+	data = {
+		'last_id': last_id,
+		'next_id': next_id,
+		'date': date
+	}
+	response = app.response_class(
+		response=json.dumps(data),
+		status=200,
+		mimetype='application/json'
+	)
+	return response
+
+
+@app.route('/trends')
+def getPrices
+	trend_dict = trends()
+	response = app.response_class(response=json.dumps(trend_dict), status=200, mimetype='application/json')
+	return response
 
 # used for debugging in development only!  NOT for production!!!
 if __name__ == "__main__":
