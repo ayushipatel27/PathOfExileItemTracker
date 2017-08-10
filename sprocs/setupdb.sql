@@ -58,19 +58,19 @@ CREATE TABLE json_stashes(
 
 CREATE TABLE barter (
   barter_id int(11) NOT NULL AUTO_INCREMENT,
-  user_id int(11) DEFAULT NULL,
+  username varchar(128) DEFAULT NULL,
   description varchar(65) DEFAULT NULL,
   PRIMARY KEY (barter_id)
 );
 
 CREATE TABLE has_items (
   barter_id INT(11) DEFAULT NULL,
-  item_id INT(11) DEFAULT NULL
+  item varchar(128) DEFAULT NULL
 );
 
 CREATE TABLE want_items (
   barter_id INT(11) DEFAULT NULL,
-  item_id INT(11) DEFAULT NULL
+  item varchar(128) DEFAULT NULL
 );
 
 
@@ -78,28 +78,15 @@ delimiter //
 create procedure save_has_items(IN insert_item varchar(128), IN insert_user varchar(128))
 begin
 
-declare u_id int(11);
-declare i_id int(11);
 declare b_id int(11);
 
-select i.id
-into i_id
-from item i
-where i.type_line = insert_item;
-
-select u.id
-into u_id
-from users u
-where u.username = insert_user;
-
-select b.id
+select b.barter_id
 into b_id
 from barter b
-where b.user_id = u_id;
+where b.username = insert_user;
 
-
-insert into has_items(barter_id, item_id)
-  values(b_id, i_id);
+insert into has_items(barter_id, item)
+  values(b_id, insert_item);
 
 end //
 delimiter ;
@@ -110,28 +97,15 @@ delimiter //
 create procedure save_wants_items(IN insert_item varchar(128), IN insert_user varchar(128))
 begin
 
-declare u_id int(11);
-declare i_id int(11);
 declare b_id int(11);
 
-select i.id
-into i_id
-from item i
-where i.type_line = insert_item;
-
-select u.id
-into u_id
-from users u
-where u.username = insert_user;
-
-select b.id
+select b.barter_id
 into b_id
 from barter b
-where b.user_id = u_id;
+where b.username = insert_user;
 
-
-insert into want_items(barter_id, item_id)
-  values(b_id, i_id);
+insert into want_items(barter_id, item)
+  values(b_id, insert_item);
 
 
 end //
@@ -143,29 +117,35 @@ delimiter //
 create procedure save_barter(IN insert_user varchar(128), IN insert_description varchar(65))
 begin
 
-declare u_id int(11);
-
-select u.id
-into u_id
-from users u
-where u.username = insert_user;
-
-insert into barter(user_id, description)
-  values(u_id, insert_description);
+insert into barter(username, description)
+  values(insert_user, insert_description);
 
 end //
 delimiter ;
 
 
 
--- delimiter //
--- create procedure lookup_barter(IN insert_user varchar(128), IN insert_description varchar(65))
--- begin
+delimiter //
+create procedure lookup_barter(IN insert_user varchar(128))
+begin
 
+declare b_id int(11);
 
+select b.barter_id
+into b_id
+from barter b
+where b.username = insert_user;
 
--- end //
--- delimiter ;
+select h.item, h.barter_id
+from has_items h
+where h.barter_id = b_id;
+
+select h.item, h.barter_id
+from want_items h
+where h.barter_id = b_id;
+
+end //
+delimiter ;
 
 
 

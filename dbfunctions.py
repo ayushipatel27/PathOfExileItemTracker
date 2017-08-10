@@ -90,9 +90,11 @@ def lookupBarter(user, description):
 
 	query = "CALL lookup_barter('%s, %s');" %(user, description)
 	c.execute(query)
+	results = c.fetchall()
 
 	conn.commit()
 	conn.close()
+	return results
 
 
 def getMarket():
