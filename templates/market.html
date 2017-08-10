@@ -6,12 +6,13 @@
 
 {% block body %}
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/icon.css') }}">
+    <script src="{{ url_for('static', filename='scripts/market.js')}}"></script>
 <!-- <head>
 </head> -->
 
     <div class="row">
       <div class="col-md-4 sidebar">
-        <form method="POST" action="">
+        <form id="chooser">
             <h2 class="sidebar-text">What items do you have?</h2><br>
             <div class="item-align">
               <input type="checkbox" name="has" value="Albino Rhoa Feather" id="Albino Rhoa Feather"/>
@@ -517,24 +518,25 @@
               	<img src= {{ url_for('static', filename = 'currencyIcons/Transmutation Shard.png') }}>
               </label>
             </div>
+            <p>
+                {% if session['username'] is defined %}
+                <input type="submit" class="btn btn-primary pull-right" value="Save">
+                {% endif %}
+            </p>
           </form>
+          <input id="search-btn" type="submit" class="btn btn-primary" value="Search">
+
           <br></br>
-          <p>
-              <input type="submit" class="btn btn-primary" value="Search">
-              {% if session['username'] is defined %}
-              <input type="submit" class="btn btn-primary pull-right" value="Save">
-              {% endif %}
-          </p>
 
         </div>
 
-          {% if market is defined %}
           <div class="col-md-8">
             <div class="market-size">
               <div class="market-table">
                 <table>
-                  <tr>
+                  <tr id="market-header">
                       <th>Selling</th>
+                      <th></th>
                       <th></th>
                       <th></th>
                       <th></th>
@@ -545,26 +547,12 @@
                       <th>Listed On</th>
                   </tr>
 
-                  {% for item in market %}
-                  <tr>
-                    {% for column in item %}
-                      {% if loop.index == 2 %}
-                           <td><img src="{{ column }}"></td>
-                      {% elif loop.index == 4 %}
-                          <td>for</td>
-                          <td>{{ column }}</td>
-                      {% else %}
-                          <td>{{ column }}</td>
-                      {% endif %}
-                    {% endfor %}
-                  </tr>
-                    {% endfor %}
+                  <!-- Live-loaded stuff goes here -->
 
                 </table>
               </div>
             </div>
           </div>
-          {% endif %}
           {% endblock %}
 
     </div>

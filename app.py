@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging
+from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging, jsonify
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
@@ -128,6 +128,33 @@ def selectItems():
 		# for has_index in has_items:
 		# 	has_items[has_index]
 	return render_template('market.html')
+
+@app.route('/marketItems', methods=['GET'])
+def marketItems():
+	has_items = request.args.getlist('has')
+	want_items = request.args.getlist('want')
+	print("has", has_items)
+	print("want", want_items)
+	market = []
+	for i in has_items:
+		for j in want_items:
+			items = getTrade(i, j)
+			for item in items:
+				market.append({
+					"selling": item[0],
+					"image": item[1],
+					"val1": item[2],
+					"val2": item[3],
+					"buying": item[4],
+					"name": item[5],
+					"league": item[6],
+					"quantity": item[7],
+					"date": item[8]
+				});
+	market = sorted(market, key=lambda x: x['date'], reverse=True)
+
+	data = {"market" : market}
+	return jsonify(data)
 
 @app.route('/save', methods=['GET', 'POST'])
 def saveItems():

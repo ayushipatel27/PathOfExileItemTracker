@@ -7,11 +7,11 @@ import pymysql.cursors
 # pymysql.connect def makeConnection():
 def makeConnection():
 
-	file = open(sys.path[0]+"/dbconfig.txt", "r")   
-	dbStr = file.readline().strip() 
-	userStr = file.readline().strip() 
-	passwdStr = file.readline().strip() 
-	hostStr = file.readline().strip() 
+	file = open(sys.path[0]+"/dbconfig.txt", "r")
+	dbStr = file.readline().strip()
+	userStr = file.readline().strip()
+	passwdStr = file.readline().strip()
+	hostStr = file.readline().strip()
 
 	conn = pymysql.connect(
 		db=dbStr,
@@ -102,7 +102,7 @@ def getTrade(has, want):
 
 	# Fetch all the rows in a list of lists.
 	results = c.fetchall()
-
+	print(results)
 	conn.close()
 	return results
 
