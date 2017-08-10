@@ -17,8 +17,8 @@ function refresh(){
 function addRow(row){
   $('#market-header').after(
     $('<tr>').append(`
-      <td class="first-td">${row.selling}</td>
-      <td><img src="${row.image}"></td>
+      <!--<td class="first-td">${row.selling}</td>-->
+      <td class="first-td"><img src="${row.image}"></td>
       <td>${row.val1}</td>
       <td>for</td>
       <td>${row.val2}</td>
