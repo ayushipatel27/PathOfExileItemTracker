@@ -13,7 +13,7 @@ This app makes trading easier, allowing users to concentrate on playing the game
 
 * **Bryan Arretteig** - *Developer* - [GitHub](https://github.com/Arretteig) - [UAB GitLab] (https://gitlab.cis.uab.edu/medzo)
 * **Craig Brewton** - *Developer* -  [UAB GitLab] (https://gitlab.cis.uab.edu/craigb96)
-* **Tarra Kuhn** - *Developer* - [UAB GitLab] (https://gitlab.cis.uab.edu/tarrak)
+* **Tarra Kuhn** - *Developer* - [GitHub](https://github.com/tarrak) - [UAB GitLab] (https://gitlab.cis.uab.edu/tarrak)
 * **Ayushi Patel** - *Developer* - [GitHub](https://github.com/ayushipatel27) - [UAB GitLab] (https://gitlab.cis.uab.edu/ayushi27)
 
 
@@ -24,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
 * On Windows Vagrant will create a private key for you at 'PROJECT_DIRECTORY/.vagrant/machines/default/virtualbox/private_key'. You will need this key to log into the Virtual Box. If you are using Windows Putty then you will probably have PuttyGen installed. In PuttyGen hit the load button and find the private_key file. Once it is loaded save the private key file as a .ppk file in order to authenticate.
 * SSH into the virtual machine with your private key and username: ubuntu
 * Edit the host file 'sudo nano /etc/host' and add the line '127.0.0.1 pathofexileitemtracker'
-* If everything was properly set up you should now be able to see the project in your browser at http://localhost:8080 
+* If everything was properly set up you should now be able to see the project in your browser at http://localhost:8080
 
 
 ## Contributing
@@ -34,7 +34,7 @@ Please read [CONTRIBUTING.md](https://gitlab.cis.uab.edu/medzo/PathOfExileItemTr
 
 ## Built With
 
-* Linux Ubuntu 
+* Linux Ubuntu
 * Apache2
 * MySQL
 * Python Flask Web Framework
