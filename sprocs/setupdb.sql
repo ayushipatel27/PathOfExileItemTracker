@@ -41,11 +41,12 @@ CREATE TABLE users(
   PRIMARY KEY (id)
 );
 
-CREATE TABLE tracked(
+CREATE TABLE trends(
   id int(11) NOT NULL AUTO_INCREMENT,
-  user_id int(11) DEFAULT NULL,
-  item_wanted int(11) DEFAULT NULL,
-  pay_with int(11) DEFAULT NULL,
+  item_buying varchar(512) DEFAULT NULL,
+  avg_price varchar(128) DEFAULT NULL,
+  item_selling varchar(512) DEFAULT NULL,
+  day_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
 

@@ -7,6 +7,8 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from dbfunctions import *
 import datetime
+from POEstats import *
+import datetime
 import json
 import sys, os
 import pymysql
@@ -157,6 +159,13 @@ def returnJSON():
 		status=200,
 		mimetype='application/json'
 	)
+	return response
+
+
+@app.route('/trends')
+def getPrices():
+	trend_dict = trends()
+	response = app.response_class(response=json.dumps(trend_dict), status=200, mimetype='application/json')
 	return response
 
 # used for debugging in development only!  NOT for production!!!
