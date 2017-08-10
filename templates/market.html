@@ -9,7 +9,7 @@
     <script src="{{ url_for('static', filename='scripts/market.js')}}"></script>
 <!-- <head>
 </head> -->
-
+  <div class="market-bg">
     <div class="row">
       <div class="col-md-4 sidebar">
         <form id="chooser">
@@ -524,35 +524,36 @@
                 {% endif %}
             </p>
           </form>
-          <input id="search-btn" type="submit" class="btn btn-primary" value="Search">
+          <input id="search-btn" type="submit" class="btn btn-primary btn-login" value="Search">
 
           <br></br>
 
         </div>
 
-          <div class="col-md-8">
-            <div class="market-size">
-              <div class="market-table">
-                <table>
-                  <tr id="market-header">
-                      <th>Selling</th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th>Buying</th>
-                      <th>Name</th>
-                      <th>League</th>
-                      <th>Quantity</th>
-                      <th>Listed On</th>
-                  </tr>
+        <div class="col-md-8">
+          <div class="market-size">
+            <div class="market-table">
+              <table>
+                <tr id="market-header">
+                  <th style="padding-left:10px;">Selling</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th style="padding-right: 15px;">Buying</th>
+                  <th style="padding-right: 15px;">Name</th>
+                  <th>League</th>
+                  <th style="padding-right: 10px;">Quantity</th>
+                  <th>Listed On</th>
+                </tr>
 
                   <!-- Live-loaded stuff goes here -->
 
-                </table>
-              </div>
+              </table>
             </div>
           </div>
-          {% endblock %}
+        </div>
+      </div>
+      {% endblock %}
 
-    </div>
+  </div>

@@ -13,7 +13,7 @@ padding: 0 0 0 0px;
 }
 
 input[type="checkbox"]:checked + label {
-background: #00FF00;
+background: #BD5151;
 }
 
 body {

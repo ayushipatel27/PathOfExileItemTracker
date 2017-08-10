@@ -4,7 +4,8 @@ function refresh(){
       $('#market-header').hide();
     }
     else{
-      $('market-header').show();
+      $('#market-header').show();
+
     }
     $('.loaded').remove();
     for (row of response.market) {
@@ -16,7 +17,7 @@ function refresh(){
 function addRow(row){
   $('#market-header').after(
     $('<tr>').append(`
-      <td>${row.selling}</td>
+      <td class="first-td">${row.selling}</td>
       <td><img src="${row.image}"></td>
       <td>${row.val1}</td>
       <td>for</td>
