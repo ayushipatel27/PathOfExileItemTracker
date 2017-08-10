@@ -1,3 +1,4 @@
+-- Authors: Bryan Arretteig, Craig Brewton, Ayushi Patel
 -- Open mysql and type 'source /var/www/html/sprocs/setupdb.sql'
 
 create database stash;

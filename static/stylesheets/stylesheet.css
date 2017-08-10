@@ -34,7 +34,7 @@ h1.title-size{
 .detail-font{
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
-  text-shadow: 0px 0px 5px #ffffff;
+  text-shadow: 1px 1px 5px #ffffff;
 }
 
 .header-description{
@@ -49,17 +49,19 @@ h1.title-size{
 }
 
 .background-jumbotron{
-  padding-top: 50px;
+  margin-top: 50px;
   min-height: 70vh;
   width: 100%;
   background-image: url('/static/images/POE-Background.jpg');
   background-position: center;
   background-size: cover;
+  margin-bottom: 1px;
 }
 .bg-jumbotron-logreg{
-  height: 100vh;
+  margin-top: 50px;
+  height: 110vh;
   width: 100%;
-  background-image: url('/static/images/POE-Background.jpg');
+  background-image: url('/static/images/Witch-Background.jpg');
   background-position: center;
   background-size: cover;
   margin-bottom: 0;
@@ -103,4 +105,34 @@ h1.title-size{
 .btn-register{
   background-color: #323232;
   border-color: #323232;
+}
+
+
+.background-market-jumbotron{
+  padding-top: 50px;
+  min-height: 90vh;
+  width: 100%;
+  background-image: url('/static/images/Ranger-Background.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0px;
+}
+
+.background-devtool-jumbotron{
+  padding-top: 50px;
+  min-height: 90vh;
+  width: 100%;
+  background-image: url('/static/images/Templar-Background.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0px;
+}
+
+.bg-jumbotron-register{
+  min-height: 90vh;
+  width: 100%;
+  background-image: url('/static/images/Marauder-Background.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0;
 }

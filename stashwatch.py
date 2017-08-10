@@ -1,3 +1,5 @@
+# Authors: Bryan Arretteig
+
 import requests
 import sys
 import pymysql

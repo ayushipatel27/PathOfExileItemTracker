@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# Authors: Bryan Arretteig, Craig Brewton, Tarra Khun, Ayushi Patel
 
 from flask import Flask, render_template, request, Response, flash, redirect, url_for, session, logging, json
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -140,7 +141,7 @@ def saveItems():
 				save_want_items = saveWantItem(i, user)
 
 
-@app.route('/JSON')
+@app.route('/api-ids-json')
 def returnJSON():
 	api_info = getApiInfo()
 	last_id = api_info[0][0]

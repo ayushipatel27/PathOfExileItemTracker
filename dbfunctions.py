@@ -1,3 +1,5 @@
+# Authors: Bryan Arretteig, Craig Brewton, Ayushi Patel
+
 # Connect to the database.
 import sys
 import pymysql
