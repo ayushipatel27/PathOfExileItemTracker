@@ -13,7 +13,7 @@ This app makes trading easier, allowing users to concentrate on playing the game
 
 * **Bryan Arretteig** - *Developer* - [GitHub](https://github.com/Arretteig) - [UAB GitLab] (https://gitlab.cis.uab.edu/medzo)
 * **Craig Brewton** - *Developer* -  [UAB GitLab] (https://gitlab.cis.uab.edu/craigb96)
-* **Tarra Kuhn** - *Developer* - [UAB GitLab] (https://gitlab.cis.uab.edu/tarrak)
+* **Tarra Kuhn** - *Developer* - [GitHub](https://github.com/tarrak) - [UAB GitLab] (https://gitlab.cis.uab.edu/tarrak)
 * **Ayushi Patel** - *Developer* - [GitHub](https://github.com/ayushipatel27) - [UAB GitLab] (https://gitlab.cis.uab.edu/ayushi27)
 
 

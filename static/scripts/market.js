@@ -1,5 +1,9 @@
+// Author: Tarra Kuhn
+
+// Refreshes the data on the page.
 function refresh(){
   $.get('/marketItems', $('#chooser').serialize()).then(response => {
+    // The header looks dumb on its own, let's hide it if there's no rows.
     if (response.market.length == 0){
       $('#market-header').hide();
     }
@@ -7,13 +11,16 @@ function refresh(){
       $('#market-header').show();
 
     }
+    // Get rid of the old data
     $('.loaded').remove();
     for (row of response.market) {
+      // Add the new rows to the table
       addRow(row);
     }
   });
 }
 
+// Adds a row to the market table
 function addRow(row){
   $('#market-header').after(
     $('<tr>').append(`
@@ -30,16 +37,20 @@ function addRow(row){
     `).addClass('loaded')
   )
 }
+// Wait for the document to load
 $(document).ready(() => {
+   // Refresh the page first thing
   refresh();
+    // And when they click the search button, refresh again
   $('#search-btn').click(() => {
     refresh();
   })
 })
 
+// Update every 10 seconds
 setInterval(() => {
   refresh();
 }, 10000);
 
 
-console.log("Market.js loading")
+
