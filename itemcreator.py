@@ -32,6 +32,9 @@ def attemptSplitNote(note):
         elif (float(price) < 1) and (float(price) > 0):
             seller_paying_amount = 1 / float(price)
             seller_wanting_amount = 1.0
+    else:
+        print("ITEM NOT FOR SALE")
+        quit(1)
     tracked_item['seller_paying_amount'] = seller_paying_amount
     tracked_item['seller_wanting_amount'] = seller_wanting_amount
     tracked_item['item_wanted'] = item_wanted

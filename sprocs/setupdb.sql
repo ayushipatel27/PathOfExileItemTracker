@@ -76,6 +76,18 @@ delimiter ;
 
 
 delimiter //
+create procedure get_stashwatch_api_ids()
+begin
+select json_stashes.last_id, json_stashes.next_id, json_stashes.parsed_date
+from json_stashes
+order by json_stashes.parsed_date desc
+limit 1;
+end //
+delimiter ;
+
+
+
+delimiter //
 create procedure get_next_id()
 begin
 select json_stashes.next_id
