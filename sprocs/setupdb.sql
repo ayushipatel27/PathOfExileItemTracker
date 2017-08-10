@@ -158,7 +158,7 @@ from market
 join item i on i.id = market.seller_item
 where i.type_line = has_item AND market.item_wanted = want_item
 order by market.posted desc
-limit 10;
+limit 50;
 
 end //
 delimiter ;
