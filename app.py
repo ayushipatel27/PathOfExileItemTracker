@@ -161,7 +161,7 @@ def returnJSON():
 
 
 @app.route('/trends')
-def getPrices
+def getPrices():
 	trend_dict = trends()
 	response = app.response_class(response=json.dumps(trend_dict), status=200, mimetype='application/json')
 	return response

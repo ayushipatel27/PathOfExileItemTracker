@@ -21,8 +21,8 @@ def attemptSplitNote(note):
         price = note_subs[1]
         if price.find('/') != -1:
             raw_numbers = price.split('/')
-            seller_paying_amount = float(raw_numbers[0])
-            seller_wanting_amount = float(raw_numbers[1])
+            seller_paying_amount = float(raw_numbers[1])
+            seller_wanting_amount = float(raw_numbers[0])
         elif float(price) == 1:
             seller_paying_amount = 1.0
             seller_wanting_amount = 1.0

@@ -81,11 +81,12 @@ def trends():
                     numerator = sum_dict[name][want]
                     denominator = count_dict[name][want]
                     running_avg = running_avg + (numerator / denominator)
-                    avgs_dict[name][want] = Fraction(str(running_avg)).limit_denominator(100)
+                    avgs_dict[name][want] = running_avg
                 else:
                     numerator = sum_dict[name][want]
                     denominator = count_dict[name][want]
-                    avgs_dict[name][want] = Fraction(str((numerator / denominator))).limit_denominator(100)
+                    avgs_dict[name][want] = (numerator / denominator)
+                    #avgs_dict[name][want] = Fraction(str((numerator / denominator))).limit_denominator(100)
     return avgs_dict
 
 def post_stats():
@@ -97,7 +98,8 @@ def post_stats():
     #cycle through dict and insert items into 'trends' table as you go
     for sell, buy in trends_dict.items():
         for want, price in buy.items():
-            query = "INSERT INTO trends (item_buying, avg_price, item_selling) VALUES ('%s', '%s', '%s');" % (want, str(price), sell)
+            pretty_price = Fraction(price).limit_denominator(100)
+            query = "INSERT INTO trends (item_buying, avg_price, item_selling) VALUES ('%s', '%s', '%s');" % (want, str(pretty_price), sell)
             try:
                 # Tries to insert item into the database.
                 curs.execute(query)
