@@ -29,10 +29,6 @@ These instructions will get you a copy of the project up and running on your loc
 * If everything was properly set up you should now be able to see the project in your browser at http://localhost:8080
 * NOTE: When running stashwatch for the very first time the program will attempt to get the latest path of exile api id from another site. If your connection is refued to this site then you will get an error and stashwatch wont work. The solution to this seems to be either to wait and try again, redeploy your virtual machine, or as a last resort manually run a procedure to insert an older api id to look at in the json_stashes table. To do this open mysql and type 'use stash;' then "CALL update_json_id('77560891-81505961-76408727-88636703-82457809', '77560949-81506007-76408764-88636764-82457860')". 
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gitlab.cis.uab.edu/medzo/PathOfExileItemTracker/blob/871952f0790b9604c77bea52bfab848fc3cf9d35/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
 
 ## Built With
 
