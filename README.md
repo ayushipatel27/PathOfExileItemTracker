@@ -22,10 +22,12 @@ This app makes trading easier, allowing users to concentrate on playing the game
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 * In the terminal navigate to the project directory run command 'vagrant up'
 * On Windows Vagrant will create a private key for you at 'PROJECT_DIRECTORY/.vagrant/machines/default/virtualbox/private_key'. You will need this key to log into the Virtual Box. If you are using Windows Putty then you will probably have PuttyGen installed. In PuttyGen hit the load button and find the private_key file. Once it is loaded save the private key file as a .ppk file in order to authenticate.
+* Create a configdb.txt file just like the ones from previous class projects with the database name 'stash'
 * SSH into the virtual machine with your private key and username: ubuntu
-* Edit the host file 'sudo nano /etc/host' and add the line '127.0.0.1 pathofexileitemtracker'
+* Open mysql and run the command 'source /var/www/html/sprocs/setupdb.sql' and then exit mysql
+* Navigate to the director /var/www/html/ and start the parser with 'python stashwatch.py'
 * If everything was properly set up you should now be able to see the project in your browser at http://localhost:8080
-
+* NOTE: When running stashwatch for the very first time the program will attempt to get the latest path of exile api id from another site. If your connection is refued to this site then you will get an error and stashwatch wont work. The solution to this seems to be either to wait and try again, redeploy your virtual machine, or as a last resort manually run a procedure to insert an older api id to look at in the json_stashes table. To do this open mysql and type 'use stash;' then "CALL update_json_id('77560891-81505961-76408727-88636703-82457809', '77560949-81506007-76408764-88636764-82457860')". 
 
 ## Contributing
 
